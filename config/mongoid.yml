@@ -70,9 +70,7 @@ test:
 production:
   sessions:
     default:
-      database: kalakrati_test
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URI']
       options:
         read: primary
         # In the test environment we lower the retries and retry interval to
