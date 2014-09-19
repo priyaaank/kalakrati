@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
@@ -60,6 +60,8 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-ancestry (0.4.2)
+      mongoid
     moped (2.0.0)
       bson (~> 2.2)
       connection_pool (~> 2.0)
@@ -132,6 +134,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mongoid
+  mongoid-ancestry
+  moped
   rails (= 4.1.6)
   rails_12factor
   sass-rails (~> 4.0.3)

@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 
 ruby '2.1.2'
 
@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'mongoid'
+gem 'mongoid-ancestry'
+gem 'moped'
 gem 'haml'
 
 gem 'rails_12factor', group: :production

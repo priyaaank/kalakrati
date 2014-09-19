@@ -9,5 +9,6 @@ class Product
 
   embeds_many :tags
   embeds_many :images
+  belongs_to :category
 
 end
