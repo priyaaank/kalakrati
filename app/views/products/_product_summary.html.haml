@@ -1,0 +1,13 @@
+.product-tab.w100.clearfix
+  %ul.nav.nav-tabs
+    %li.active
+      %a{:href => "#details", "data-toggle" => "tab"} Details
+    %li
+      %a{:href => "#shipping", "data-toggle" => "tab"} Shipping
+
+
+  .tab-content
+    .tab-pane.active#details
+      = @product.description
+    .tab-pane#shipping
+      Standard shipping : 5-10 days
