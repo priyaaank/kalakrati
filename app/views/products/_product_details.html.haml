@@ -1,0 +1,12 @@
+%h1.product-title
+  = @product.name
+%h3.product-code
+  = @product.code
+.product-price
+  %span.price-sales
+    = @product.price
+  %span.price-standard
+    = @product.price
+
+.details-description
+  %p "#{@product.description}"

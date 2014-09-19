@@ -11,4 +11,9 @@ class Product
   embeds_many :images
   belongs_to :category
 
+
+  def primary_image
+    images.select {|img| img.primary }.first
+  end
+
 end

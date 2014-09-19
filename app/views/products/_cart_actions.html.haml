@@ -1,0 +1,18 @@
+.cart-actions
+  .addto
+    %button{:onclick=>"productAddToCartForm.submit(this);", :class=>"button btn-cart cart first", :title=>"Add to Cart", :type=>"button"} Add to Cart
+    %a.link-wishlist.wishlist Add to Wishlist
+
+  %div{:style => "clear:both"}
+
+  %h3.incaps
+    %i.fa.fa.fa-check-circle-o.color-in
+    In stock
+
+  %h3.incaps{:style => "display:none"}
+    %i.fa.fa.fa-minus-circle-o.color-out
+    Out of stock
+
+  %h3.incaps
+    %i.glyphicon.glyphicon-lock
+    Secure online ordering

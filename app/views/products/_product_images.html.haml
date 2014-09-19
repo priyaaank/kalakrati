@@ -1,0 +1,11 @@
+.col-lg-6.col-md-6.col-sm-6
+  .main-image.sp-wrap.col-lg-12.no-padding.style2{:style => "display: inline-block;"}
+    .sp-large
+      %a(href="")
+        %img{:src => "#{asset_path(@product.primary_image.url)}", :alt => "img", :class => "img-responsive"}
+
+    - if @product.images.present?
+      .sp-thumbs.sp-tb-active
+        - @product.images.each do |image|
+          %a{:href => "#{asset_path(image.url)}", :class=>"sp-current"}
+            %img{:src=>"#{asset_path(image.url)}", :class=>"img-responsive", :alt=>"img"}

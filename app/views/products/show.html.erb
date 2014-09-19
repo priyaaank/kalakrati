@@ -1,0 +1,124 @@
+<div class="container main-container headerOffset">
+  <div class="row">
+    <%= render :partial=>"breadcrumb" %>
+  </div>
+  <div class="row transitionfx">
+  
+    <%= render :partial => "product_images" %> 
+    
+    <!-- right column -->
+    <div class="col-lg-6 col-md-6 col-sm-5">
+    
+      <%= render :partial => "product_details" %>
+
+      <div class="productFilter">
+        <div class="filterBox">
+          <select style="display: none;">
+            <option value="strawberries" selected="">Quantity</option>
+            <option value="mango">1</option>
+            <option value="bananas">2</option>
+            <option value="watermelon">3</option>
+            <option value="grapes">4</option>
+            <option value="oranges">5</option>
+            <option value="pineapple">6</option>
+            <option value="peaches">7</option>
+            <option value="cherries">8</option>
+          </select>
+          <%#<div class="minict_wrapper">%>
+            <%#<input type="text" value="Quantity" placeholder="Quantity">%>
+            <%#<ul>%>
+              <%#<li data-value="strawberries" class="selected">Quantity</li>%>
+              <%#<li data-value="mango" class="">1</li>%>
+              <%#<li data-value="bananas" class="">2</li>%>
+              <%#<li data-value="watermelon" class="">3</li>%>
+              <%#<li data-value="grapes" class="">4</li>%>
+              <%#<li data-value="oranges" class="">5</li>%>
+              <%#<li data-value="pineapple" class="">6</li>%>
+              <%#<li data-value="peaches" class="">7</li>%>
+              <%#<li data-value="cherries" class="">8</li>%>
+              <%#<li class="minict_empty">No results match your keyword.</li></ul></div>%>
+        <%#</div>%>
+      </div>
+      <!-- productFilter -->
+      
+      <%= render :partial => "cart_actions" %> 
+      <div class="clear"></div>
+      
+      <div class="product-tab w100 clearfix">
+      
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+          <li> <a href="#size" data-toggle="tab">Size</a></li>
+          <li> <a href="#shipping" data-toggle="tab">Shipping</a></li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="details">Sed ut eros felis. Vestibulum rutrum imperdiet nunc a interdum. In scelerisque libero ut elit porttitor commodo. Suspendisse laoreet magna nec urna fringilla viverra.<br>
+            100% Cotton<br></div>
+          <div class="tab-pane" id="size"> 16" waist<br>
+            34" inseam<br>
+            10.5" front rise<br>
+            8.5" knee<br>
+            7.5" leg opening<br>
+            <br>
+            Measurements taken from size 30<br>
+            Model wears size 31. Model is 6'2 <br>
+            <br>
+          </div>
+          
+          <div class="tab-pane" id="shipping">
+            <table>
+              <colgroup>
+              <col style="width:33%">
+              <col style="width:33%">
+              <col style="width:33%">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>Standard</td>
+                  <td>1-5 business days</td>
+                  <td>$7.95</td>
+                </tr>
+                <tr>
+                  <td>Two Day</td>
+                  <td>2 business days</td>
+                  <td>$15</td>
+                </tr>
+                <tr>
+                  <td>Next Day</td>
+                  <td>1 business day</td>
+                  <td>$30</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3">* Free on orders of $50 or more</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          
+        </div> <!-- /.tab content -->
+        
+      </div><!--/.product-tab-->
+      
+      <div style="clear:both"></div>
+      
+      <div class="product-share clearfix">
+        <p> SHARE </p>
+        <div class="socialIcon"> 
+        	<a href="#"> <i class="fa fa-facebook"></i></a> 
+            <a href="#"> <i class="fa fa-twitter"></i></a> 
+            <a href="#"> <i class="fa fa-google-plus"></i></a> 
+            <a href="#"> <i class="fa fa-pinterest"></i></a> </div>
+      </div>
+      <!--/.product-share--> 
+      
+    </div><!--/ right column end -->
+    
+  </div>
+  <!--/.row-->
+  
+  
+</div>
