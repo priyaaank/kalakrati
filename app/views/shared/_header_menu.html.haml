@@ -11,14 +11,9 @@
           %li.no-border
             %p.promo-1
               %strong COLLECTIONS
-          %li
-            %a{:href=>"category.html"} ALL NEW PRODUCTS
-          %li
-            %a{:href=>"category.html"} ALL NEW PRODUCTS
-          %li
-            %a{:href=>"category.html"} ALL NEW PRODUCTS
-          %li
-            %a{:href=>"category.html"} ALL NEW PRODUCTS
+          - @root_categories.each do |category|
+            %li
+              %a{:href=>"category.html"} #{category.name}
 
         %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
           %li
