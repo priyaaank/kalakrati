@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def populate_root_categories
-    @root_categories = Category.where(:parent => nil)
+    @root_categories = Category.roots
   end
 end
