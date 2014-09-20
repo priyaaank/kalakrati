@@ -13,7 +13,7 @@
               %strong COLLECTIONS
           - @root_categories.each do |category|
             %li
-              %a{:href=>"category.html"} #{category.name}
+              %a{:href=>category_products_url(category)} #{category.name}
 
         %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
           %li

@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
 
+  before_filter :populate_root_categories
+
   def index
     @products = Product.all
-    @root_categories = Category.where(:parent => nil)
     render :home
   end
 
