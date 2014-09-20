@@ -1,0 +1,81 @@
+.col-lg-9.col-md-9.col-sm-12
+  .w100.clearfix.category-top
+    %h2 #{@category.name.upcase} COLLECTION
+    .categoryImage
+      %img.img-responsive{ :src=>"", :alt=>"img"}
+    
+    .w100.productFilter.clearfix
+      %p.pull-left
+        Showing
+        %strong
+          = @products.count
+        products
+      .pull-right
+        .change-order.pull-right
+          %select.form-control{:name => "orderby", :style=>"display: none;"}
+            %option{:selected=>"selected"}Default sorting
+            %option{:value=>"price"}Sort by price: low to high
+            %option{:value=>"price-desc"}Sort by price: high to low
+            %option{:value=>"popularity"}Sort by popularity
+            %option{:value=>"newness"}Sort by newness
+          .minict_wrapper
+            %input{:type => "text", :value=>"Default sorting", :placeholder => "Default sorting"}
+            %ul
+              %li.selected{"data-value" => "Default sorting"}Default sorting
+              %li{"data-value" => "price"}Sort by price: low to high
+              %li{"data-value" => "price-desc"}Sort by price: low to high
+              %li{"data-value" => "popularity"}Sort by popularity
+              %li{"data-value" => "newness"}Sort by newness
+              %li.minict_empty No results to match your keyword
+          .change-view.pull-right
+            %a.grid-view{:href=>"#", :title=>"Grid"}
+              %i.fa.fa-th-large
+            %a.list-view{:href=>"#", :title=>"List"}
+              %i.fa.fa-th-list
+
+    .row.categoryProduct.xsResponse.clearfix
+      - @products.each do |product|
+        .item.col-sm-4.col-lg-4.col-md-4.col-xs-6
+          .product
+            %a.add-fav.tooltipHere{"data-toggle" => "tooltip", "data-original-title" => "Add to Wishlist", "data-placement" => "left"}
+              %i.glyphicon.glyphicon-heart
+                
+            .image
+              %a{:href=>"product_details.html"}
+                %img.img-responsive{:src=> asset_path(product.images.first.url), :alt=>"image"}
+              .promotion
+                %span.new-product New
+            .description
+              %h4
+                %a{:href=>"product_details.html"} 
+                  = product.name
+              .grid-description
+                %p 
+                  = product.description
+              .list-description
+                %p 
+                  = product.description
+              .price
+                %span 
+                  = product.price
+              .action-control
+                %a.btn.btn-primary
+                  %span.add2cart
+                    %i.glyphicon.glyphicon-shopping-cart
+                    Add to cart
+      <!--/.categoryProduct || product content end-->
+      
+    .w100.categoryFooter
+      .pagination.pull-left.no-margin-top
+        %ul.pagination.no-margin-top
+          %li
+            %a{:href=>"#"}«
+          %li.active
+            %a{:href=>"#"}1
+          %li
+            %a{:href=>"#"}2
+          %li
+            %a{:href=>"#"}»
+    
+      .pull-right.pull-right.col-sm-4.col-xs-12.no-padding.text-right.text-left-xs
+        %p Showing 1–450 of 12 results

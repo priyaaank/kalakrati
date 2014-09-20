@@ -10,14 +10,16 @@ class ProductsController < ApplicationController
   def index
     category_id = params[:category_id]
     @products = filtered_products_for_category(category_id)
+    puts "Category -> #{@category}"
+    puts "Products -> #{@products}"
   end
 
   private
 
   def filtered_products_for_category category_id
     Product.all and return if category_id.nil?
-    category = Category.where(:_id => category_id)
-    category.nil? ? Product.all : category.descendants.collect {|cat| cat.products}
+    @category = Category.where(:_id => category_id).first
+    @category.nil? ? Product.all : @category.descendants.collect {|cat| cat.products}.flatten
   end
 
 end
