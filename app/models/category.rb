@@ -10,4 +10,11 @@ class Category
 
   has_ancestry
 
+  def all_products_in_hierarchy
+    products = []
+    products.concat(self.products)
+    products.concat(self.descendants.collect {|subcategory| subcategory.products }.flatten)
+    products
+  end
+
 end

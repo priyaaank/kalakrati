@@ -7,7 +7,7 @@ module ProductHelper
       categories << category
       category = category.parent
     end
-    categories
+    categories.reverse
   end
 
 end

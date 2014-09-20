@@ -41,13 +41,13 @@
               %i.glyphicon.glyphicon-heart
                 
             .image
-              %a{:href=>"product_details.html"}
+              %a{:href=> url_for(product) }
                 %img.img-responsive{:src=> asset_path(product.images.first.url), :alt=>"image"}
               .promotion
                 %span.new-product New
             .description
               %h4
-                %a{:href=>"product_details.html"} 
+                %a{:href=>url_for(product)} 
                   = product.name
               .grid-description
                 %p 
