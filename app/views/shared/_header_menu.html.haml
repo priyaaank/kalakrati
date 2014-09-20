@@ -1,0 +1,43 @@
+%ul.nav.navbar-nav
+  %li.active
+    %a{:href=>"#"} Home
+  %li.dropdown.megamenu-fullwidth
+    %a{"data-toggle" => "dropdown", :class => "dropdown-toggle", :href=>"#"}
+      Shop
+      %b.caret
+    %ul.dropdown-menu
+      %li.megamenu-content
+        %ul.col-lg-3.col-sm-3.col-md-3.unstyled.noMarginLeft.newCollectionUl
+          %li.no-border
+            %p.promo-1
+              %strong COLLECTIONS
+          %li
+            %a{:href=>"category.html"} ALL NEW PRODUCTS
+          %li
+            %a{:href=>"category.html"} ALL NEW PRODUCTS
+          %li
+            %a{:href=>"category.html"} ALL NEW PRODUCTS
+          %li
+            %a{:href=>"category.html"} ALL NEW PRODUCTS
+
+        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
+          %li
+            %a.newProductMenuBlock{:href => "product-details.html"}
+              %img.img-responsive{:src => "#{asset_path('site/promo1.jpg')}", :alt=>"product"}
+                %span.ProductMenuCaption
+                  %i.fa.fa-caret-right
+                  PAPER
+        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
+          %li
+            %a.newProductMenuBlock{:href => "product-details.html"}
+              %img.img-responsive{:src => "#{asset_path('site/promo2.jpg')}", :alt=>"product"}
+                %span.ProductMenuCaption
+                  %i.fa.fa-caret-right 
+                  GLASS
+        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
+          %li
+            %a.newProductMenuBlock{:href => "product-details.html"}
+              %img.img-responsive{:src => "#{asset_path('site/promo3.jpg')}", :alt=>"product"}
+                %span.ProductMenuCaption
+                  %i.fa.fa-caret-right 
+                  CERAMICS
