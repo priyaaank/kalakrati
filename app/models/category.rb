@@ -17,4 +17,8 @@ class Category
     products
   end
 
+  def self.roots_excluding category
+    ( Category.roots.not_in(:_id => category.id) || [] )
+  end
+
 end

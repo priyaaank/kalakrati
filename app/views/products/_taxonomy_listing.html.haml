@@ -1,0 +1,26 @@
+.panel.panel-default
+  .panel-heading
+    %h4.panel-title
+      %a.collapseWill{"data-toggle"=>"collapse", :href=>"#collapseCategory"}
+        %span.pull-left
+          %i.fa.fa-caret-right
+        Collections
+  .panel-collapse.collapse.in#collapseCategory
+    .panel-body
+      %ul.nav.nav-pills.nav-stacked.tree
+        %li.active.dropdown-tree.open-tree
+          %a.dropdown-tree-a
+            %span.badge.pull-right
+              = @products.count
+            = @category.name
+          %ul.category-level-2.dropdown-menu-tree
+            - @category.descendants.each do |subcategory|
+              %li.dropdown-tree
+                %a.dropdown-tree.a{:href=>"#"} 
+                  = subcategory.name
+        - Category.roots_excluding(@category).each do |root_category|
+          %li
+            %a{:href=>"#"}
+              %span.badge.pull-right
+                = root_category.all_products_in_hierarchy.count
+              = root_category.name
