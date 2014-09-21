@@ -2,9 +2,9 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 ## Product Taxonomies
-glass = Category.create!(name: "Glass", description: "Glass products", image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
+glass = Category.create!(name: "Glass", description: "Glass products", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/zinjin/3279595927")
 paper = Category.create!(name: "Paper", description: "Paper products", image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
-bottles = Category.create!(name: "Bottle", description: "Glass bottles", parent: glass, image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
+bottles = Category.create!(name: "Bottle", description: "Glass bottles", parent: glass)
 
 
 ## Glass Products
