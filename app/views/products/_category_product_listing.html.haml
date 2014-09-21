@@ -2,7 +2,8 @@
   .w100.clearfix.category-top
     %h2 #{@category.name.upcase} COLLECTION
     .categoryImage
-      %img.img-responsive{ :src=>"", :alt=>"img"}
+      %a{:href=>"#{@category.display_image_source}", :target=>"new"}
+        %img.img-responsive{ :src=>"#{asset_path(@category.display_image)}", :alt=>"img"}
     
     .w100.productFilter.clearfix
       %p.pull-left

@@ -5,6 +5,8 @@ class Category
 
   field :name, type: String
   field :description, type: String
+  field :image_url, type: String
+  field :image_source, type: String
 
   has_many :products
 
@@ -17,8 +19,12 @@ class Category
     products
   end
 
-  def self.roots_excluding category
-    ( Category.roots.not_in(:_id => category.id) || [] )
+  def display_image
+    (self.image_url || self.root.image_url || "")
+  end
+
+  def display_image_source
+    (self.image_source || self.root.image_source || "")
   end
 
 end
