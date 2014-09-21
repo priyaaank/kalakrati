@@ -17,7 +17,9 @@ class ProductsController < ApplicationController
   def filtered_products_for_category category_id
     Product.all and return if category_id.nil?
     @category = Category.where(:_id => category_id).first
+    @root_category = @category.root
     @category.nil? ? Product.all : @category.all_products_in_hierarchy
+    
   end
 
 end
