@@ -18,20 +18,11 @@
             %option{:value=>"price-desc"}Sort by price: high to low
             %option{:value=>"popularity"}Sort by popularity
             %option{:value=>"newness"}Sort by newness
-          .minict_wrapper
-            %input{:type => "text", :value=>"Default sorting", :placeholder => "Default sorting"}
-            %ul
-              %li.selected{"data-value" => "Default sorting"}Default sorting
-              %li{"data-value" => "price"}Sort by price: low to high
-              %li{"data-value" => "price-desc"}Sort by price: low to high
-              %li{"data-value" => "popularity"}Sort by popularity
-              %li{"data-value" => "newness"}Sort by newness
-              %li.minict_empty No results to match your keyword
-          .change-view.pull-right
-            %a.grid-view{:href=>"#", :title=>"Grid"}
-              %i.fa.fa-th-large
-            %a.list-view{:href=>"#", :title=>"List"}
-              %i.fa.fa-th-list
+        .change-view.pull-right
+          %a.grid-view{:href=>"#", :title=>"Grid"}
+            %i.fa.fa-th-large
+          %a.list-view{:href=>"#", :title=>"List"}
+            %i.fa.fa-th-list
 
     .row.categoryProduct.xsResponse.clearfix
       - @products.each do |product|
