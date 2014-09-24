@@ -1,0 +1,23 @@
+.container.main-container.headerOffset{"ng-controller" => "ProductDetailsController"}
+  .row
+    = render :partial => "product_breadcrumb" 
+  .row.transitionfx
+    = render :partial => "product_images"
+
+    .col-lg-6.col-md-6.col-sm-5
+      = render :partial => "product_details"
+
+      .productFilter
+        .filterBox
+          %select{:style => "display: none;", "ng-model" => "selectedQuantity", "ng-options" => "quantity.key for quantity in quantities"}
+      
+        
+        = render :partial => "cart_actions"
+        
+        .clear
+          
+        =render :partial => "product_summary"
+
+        %div{:style => "clear:both"}
+
+        = render :partial => "product_share_options"

@@ -18,11 +18,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  #def index
-    #products = Product.all
-    #render :json =>  products.collect { |p| generate_json_for(p) }
-  #end
-
   private
 
   def filtered_products_for_category category_id
