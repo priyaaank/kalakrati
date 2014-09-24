@@ -10,5 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= angular
+//= angular-route
+//= angular-rails-templates
 //= require_tree ./jquery
+//= require ../../../lib/assets/bower_components/angular/angular
+//= require ../../../lib/assets/bower_components/angular-route/angular-route
 //= require_tree .
+//= require_tree ../templates

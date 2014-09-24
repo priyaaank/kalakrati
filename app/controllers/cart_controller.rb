@@ -7,4 +7,8 @@ class CartController < ApplicationController
     @cart = ShoppingCart.where(:id => @cart_id).first
   end
 
+  def add
+    
+  end
+
 end

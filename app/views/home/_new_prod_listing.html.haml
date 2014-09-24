@@ -1,0 +1,36 @@
+.container.main-container{"ng-controller"=>"ProductListingController"}
+  .morePost.row.featuredPostContainer.style2.globalePaddingTop
+    %h3.section-title.style2.text-center
+      %span FEATURED PRODUCTS
+    .container
+      .row.xsResponse
+
+        .item.col-lg-3.col-md-3.col-sm-4.col-xs-6{"ng-repeat" => "product in products"}
+          .product
+            %a.add-fav.tooltipHere{"data-toggle"=>"tooltip", "data-original-title"=>"Add to Wishlist", "data-placement"=>"left" }
+              %i.glyphicon.glyphicon-heart
+            .image
+              %a{:href=>"{{product.details_url}}"}
+                %img.img-responsive{"ng-src" => "{{product.images[0].img_url}}", :alt=>"img"}
+              .promotion
+                %span.discount 15% OFF
+            .description
+              %h4 
+                %a{:href=>"{{product.details_url}}"}
+                  {{product.name}}
+              %p {{product.description}}
+              %span.size {{product.category.name}}
+            .price
+              %span {{product.price}}
+            .action-control
+              %a.btn.btn-primary
+                %span.add2cart
+                  %i.glyphicon.glyphicon-shopping-cart
+                Add to cart
+      .row
+        .load-more-block.text-center
+          %a.btn.btn-thin{:href => "#"}
+            %i.fa.fa-plus-sign +
+            load more products
+
+  %hr.no-margin-top
