@@ -7,15 +7,21 @@ class ProductsController < ApplicationController
     @product = Product.where(:_id => product_id).first
   end
 
-  #def index
-    #category_id = params[:category_id]
-    #@products = filtered_products_for_category(category_id)
-  #end
-
   def index
-    products = Product.all
-    render :json =>  products.collect { |p| generate_json_for(p) }
+    category_id = params[:category_id]
+    if category_id.present? 
+      @products = filtered_products_for_category(category_id)
+      render :index and return
+    else
+      products = Product.all
+      render :json =>  products.collect { |p| generate_json_for(p) }
+    end
   end
+
+  #def index
+    #products = Product.all
+    #render :json =>  products.collect { |p| generate_json_for(p) }
+  #end
 
   private
 
