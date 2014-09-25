@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
 
   def generate_json_for product
     {
+      :id => product.id.to_s,
       :details_url => url_for(product),
       :images => hash_for_images(product.images),
       :name => product.name,

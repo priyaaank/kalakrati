@@ -23,7 +23,7 @@
             .price
               %span {{product.price}}
             .action-control
-              %a.btn.btn-primary
+              %a.btn.btn-primary{"ng-click"=>"addToCart(product.id)"}
                 %span.add2cart
                   %i.glyphicon.glyphicon-shopping-cart
                 Add to cart

@@ -2,11 +2,11 @@ class ShoppingCartItem
 
   include Mongoid::Document
 
-  has_one :product
-  embedded_in :shopping_cart
+  belongs_to :product
+  belongs_to :shopping_cart
 
 
-  field :discount, type: Float
-  field :quantity, type: Integer
+  field :discount, type: Float, default: 0
+  field :quantity, type: Integer, default: 0
 
 end

@@ -10,7 +10,6 @@ class Product
   embeds_many :tags
   embeds_many :images
   belongs_to :category
-  belongs_to :shopping_cart_item
 
   def primary_image
     images.select {|img| img.primary }.first
