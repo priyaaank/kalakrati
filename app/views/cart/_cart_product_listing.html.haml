@@ -29,7 +29,7 @@
 
         %td
           .input-group.bootstrap-touchspin
-            %input.quanitySniper.form-control{:type=>"text", :value=>"{{cart_item.quantity}}", :name=>"quanitySniper"}
+            %input.quanitySniper.form-control{:type=>"text", "ng-model"=>"cart_item.quantity", :name=>"quanitySniper"}
 
         %td.price
           Rs. {{cart_item.price * cart_item.quantity}}
