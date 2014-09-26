@@ -20,4 +20,30 @@ class CartController < ApplicationController
     render status: status_code, nothing: true
   end
 
+  def index
+    cart = ShoppingCart.where(id: @cart_id).first
+    cart_items = cart.shopping_cart_items
+    render :json => as_hash(cart_items)
+  end
+
+  private
+
+  def as_hash items
+    items.collect do |item|
+      {
+        id: item.id.to_s,
+        name: item.product.name,
+        price: item.product.price,
+        description: item.product.description,
+        quantity: item.quantity,
+        thumbnail_url: img_url(item.product.images.first.url),
+        details_url: url_for(item.product)
+      }
+    end
+  end
+
+  def img_url image
+    ActionController::Base.helpers.asset_path(image)
+  end
+
 end

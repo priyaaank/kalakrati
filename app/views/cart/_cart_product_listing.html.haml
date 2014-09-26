@@ -1,0 +1,35 @@
+.cartContent.w100
+  %table.cartTable.table-responsive{:style => "width:100%"}
+    %tbody
+      %tr.CartProduct.cartTableHeader
+        %td{:style=>"width:15%"} Product
+        %td{:style=>"width:40%"} Details
+        %td.delete{:style=>"width:20%"} &nbsp;
+        %td{:style=>"width:10%"} QNT
+        %td{:style=>"width:15%"} Total
+
+      %tr.CartProduct{"ng-repeat" => "cart_item in cart_items"}
+        %td.cartProductThumb
+          %div
+            %a{:href=>"{{cart_item.details_url}}"}
+              %img{"ng-src"=>"{{cart_item.thumbnail_url}}", :alt=>"image"}
+
+        %td
+          .CartDescription
+            %h4
+              %a{:href=>"{{cart_item.details_url}}"} {{cart_item.name}}
+            %span.size {{cart_item.description}}
+            .price
+              %span
+                {{cart_item.price}}
+
+        %td.delete
+          %a{:title => "Delete"}
+            %i.glyphicon.glyphicon-trash.fa-2x
+
+        %td
+          .input-group.bootstrap-touchspin
+            %input.quanitySniper.form-control{:type=>"text", :value=>"{{cart_item.quantity}}", :name=>"quanitySniper"}
+
+        %td.price
+          Rs. {{cart_item.price * cart_item.quantity}}
