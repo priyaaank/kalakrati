@@ -1,0 +1,31 @@
+.col-lg-3.col-md-3.col-sm-5.rightSidebar
+  .contentBox
+    .w100.costDetails
+      .table-block#order-detail-content
+        %a.btn.btn-success.btn-lg.btn-block{:title=>"checkout", :href=>"", :style=>"margin-bottom:20px"} 
+          Proceed to checkout &nbsp; 
+          %i.fa.fa-arrow-right
+        .w100.cartMiniTable
+          %table#cart-summary.std.table
+            %tbody
+              %tr
+                %td Total products
+                %td.price Rs. {{product_total}}
+              %tr
+                %td Shipping
+                %td.price
+                  %span.success Free shipping!
+              %tr.cart-total-price
+                %td Total (tax excl.)
+                %td.price Rs. {{product_total}}
+              %tr
+                %td Total tax
+                %td#total-tax.price Rs. {{tax}}
+              %tr
+                %td Total
+                %td.site-color#total-price Rs. {{total_cost}}
+              %tr
+                %td{:colspan=>"2"}
+                  .input-append.couponForm
+                    %input#appendedInputButton.col-lg-8{:type=>"text", :placeholder=>"Coupon code"}
+                    %button.col-lg-4.btn.btn-primary{:type=>"button"} Apply!

@@ -1,0 +1,12 @@
+.container.main-container.headerOffset{"ng-controller"=>"CartController"}
+  = render partial: "cart_breadcrumb"
+  = render partial: "cart_header"
+
+  .row
+    .col-lg-9.col-md-9.col-sm-7
+      .row.userInfo
+        .col-xs-12.col-sm-12
+          = render partial: "cart_product_listing"
+          = render partial: "cart_footer"
+    = render partial: "cart_calculation"
+  %div{:style=>"clear:both"}
