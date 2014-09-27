@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'cart' => 'cart#show'
   put 'cart/add' => 'cart#add'
   get 'cart/items' => 'cart#index'
+  put 'cart/items' => 'cart#update'
 
   resources :categories do
     resources :products

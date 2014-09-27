@@ -4,7 +4,7 @@ class CartController < ApplicationController
   before_filter :populate_root_categories
 
   def show
-    @cart = ShoppingCart.where(:id => @cart_id).first
+    @cart = guest_shopping_cart
   end
 
   def add
@@ -12,7 +12,7 @@ class CartController < ApplicationController
     quantity_to_add = params[:quantity]
     product = Product.where(:id => product_id_to_add).first
     if product.present?
-      ShoppingCart.where(:id => @cart_id).first.add(product, quantity_to_add)
+      guest_shopping_cart.add(product, quantity_to_add)
       status_code = 200
     else
       status_code = 404
@@ -21,9 +21,14 @@ class CartController < ApplicationController
   end
 
   def index
-    cart = ShoppingCart.where(id: @cart_id).first
-    cart_items = cart.shopping_cart_items
+    cart_items = guest_shopping_cart.shopping_cart_items
     render :json => as_hash(cart_items)
+  end
+
+  def update
+    cart_items = request[:cart_items]
+    guest_shopping_cart.update_cart_with cart_items
+    render :json => as_hash(guest_shopping_cart.shopping_cart_items)
   end
 
   private

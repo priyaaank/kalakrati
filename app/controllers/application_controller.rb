@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     @cart_id = guest_cart.id
   end
 
+  def guest_shopping_cart
+    ShoppingCart.where(:id => @cart_id).first
+  end
+
   protected
 
   def verified_request?

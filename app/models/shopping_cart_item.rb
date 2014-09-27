@@ -9,4 +9,6 @@ class ShoppingCartItem
   field :discount, type: Float, default: 0
   field :quantity, type: Integer, default: 0
 
+  validates_numericality_of :quantity, less_then: 1000, greater_then_or_equal_to: 0
+
 end

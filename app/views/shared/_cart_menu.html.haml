@@ -1,7 +1,7 @@
 .dropdown.cartMenu{"ng-controller" => "CartController"}
   %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
     %i.fa.fa-shopping-cart
-      %span.cartRespons Cart ({{product_total}})
+      %span.cartRespons Cart ({{product_total()}})
     %b.caret
   .dropdown-menu.col-lg-4.col-xs-12.col-md-4
     .w100.miniCartTable.scroll-pane
@@ -25,7 +25,7 @@
               %a x
 
     .miniCartFooter.text-right
-      %h3.text-right.subtotal Subtotal: {{product_total}}
-      %a.btn.btn-sm.btn-danger{:href=>""} 
+      %h3.text-right.subtotal Subtotal: {{product_total()}}
+      %a.btn.btn-sm.btn-danger{:href=>"#{cart_url}"} 
         %i.fa.fa-shopping-cart VIEW CART
       %a.btn.btn-sm.btn-primary CHECKOUT
