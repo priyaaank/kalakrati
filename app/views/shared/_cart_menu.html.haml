@@ -22,7 +22,8 @@
             %td.miniCartSubtotal{:style=>"width:15%"}
               %span {{cart_item.quantity * cart_item.price}}
             %td.delete{:style=>"width:5%"}
-              %a x
+              %a{"ng-click"=>"deleteCartItem(cart_item.id)"}
+                %i.glyphicon.glyphicon-trash.fa-x
 
     .miniCartFooter.text-right
       %h3.text-right.subtotal Subtotal: {{product_total()}}
