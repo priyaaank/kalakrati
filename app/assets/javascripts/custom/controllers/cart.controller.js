@@ -13,8 +13,7 @@ kalakratiApp.controller('CartController', ['$scope','$http', function($scope, $h
   }, true);
 
 
-  $http.get('cart/items').success(function(data) {
-    console.log(data);
+  $http.get('/cart/items').success(function(data) {
     $scope.cart_items = data;
   });
 

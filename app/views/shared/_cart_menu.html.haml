@@ -1,0 +1,31 @@
+.dropdown.cartMenu{"ng-controller" => "CartController"}
+  %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
+    %i.fa.fa-shopping-cart
+      %span.cartRespons Cart ({{product_total}})
+    %b.caret
+  .dropdown-menu.col-lg-4.col-xs-12.col-md-4
+    .w100.miniCartTable.scroll-pane
+      %table
+        %tbody
+          %tr.miniCartProduct{"ng-repeat" => "cart_item in cart_items"}
+            %td.miniCartProductThumb{:style=>"width:20%"}
+              %a{:href=> "{{cart_item.details_url}}"} 
+                %img{"ng-src"=>"{{cart_item.thumbnail_url}}", :alt=>"img"}
+            %td{:style=>"width:40%"}
+              .miniCartDescription
+                %h4
+                  %a{:href=>"{{cart_item.details_url}}"} {{cart_item.name}}
+                .price
+                  %span Rs.{{cart_item.price}}
+            %td.miniCartQuantity{:style=>"width:10%"}
+              %a X {{cart_item.quantity}}
+            %td.miniCartSubtotal{:style=>"width:15%"}
+              %span {{cart_item.quantity * cart_item.price}}
+            %td.delete{:style=>"width:5%"}
+              %a x
+
+    .miniCartFooter.text-right
+      %h3.text-right.subtotal Subtotal: {{product_total}}
+      %a.btn.btn-sm.btn-danger{:href=>""} 
+        %i.fa.fa-shopping-cart VIEW CART
+      %a.btn.btn-sm.btn-primary CHECKOUT
