@@ -1,8 +1,9 @@
-kalakratiApp.controller('CartController', ['$scope','$http', function($scope, $http) {
+kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', function($scope, $http, cartService) {
 
-  $scope.cart_items = [];
+  $scope.cart_items = []; 
 
-  $scope.$watch('cart_items', function() {
+  $scope.$watch(cartService.cartItems, function(value) {
+    $scope.cart_items = cartService.cartItems(); 
     $scope.product_total = 0;
     $scope.tax = 0;
     $scope.total_cost = 0;
@@ -12,9 +13,6 @@ kalakratiApp.controller('CartController', ['$scope','$http', function($scope, $h
     $scope.total_cost = $scope.product_total + $scope.tax;
   }, true);
 
-
-  $http.get('/cart/items').success(function(data) {
-    $scope.cart_items = data;
-  });
+  cartService.refreshCartItems();
 
 }]);

@@ -1,4 +1,4 @@
-kalakratiApp.controller('ProductListingController', ['$scope','$http', function($scope, $http) {
+kalakratiApp.controller('ProductListingController', ['$scope','$http','CartService', function($scope, $http, CartService) {
       $http.get('products').success(function(data) {
         $scope.products = data;
       });
@@ -11,7 +11,7 @@ kalakratiApp.controller('ProductListingController', ['$scope','$http', function(
 
         $http.put('cart/add', data).
           success(function(response) {
-            console.log(response);
+            CartService.refreshCartItems();
           });
        };
     }

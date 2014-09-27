@@ -1,1 +1,1 @@
-var kalakratiApp = angular.module('kalakrati',[]);
+var kalakratiApp = angular.module('kalakrati',['kalakrati.services']);
