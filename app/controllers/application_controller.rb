@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def lookup_and_create_cart
-    @cart_id = cookies[:guest_cart_id] and return if cookies[:guest_cart_id].present?
+    cart_id_from_cookie = cookies[:guest_cart_id]
+    @cart_id = cookies[:guest_cart_id] and return if cart_id_from_cookie.present? && ShoppingCart.where(id: cart_id_from_cookie).first.present?
     guest_cart = ShoppingCart.create!
     cookies[:guest_cart_id] = { value: guest_cart.id, expires: 1.year.from_now }
     @cart_id = guest_cart.id
