@@ -10,6 +10,10 @@ class ShoppingCart
     shopping_cart_item.save!
   end
 
+  def delete cart_item
+    shopping_cart_items.destroy_all(id: cart_item.id)
+  end
+
   def update_cart_with items
     items_to_delete = deleted_item_ids(items)
     delete_removed_cart_items(items_to_delete)

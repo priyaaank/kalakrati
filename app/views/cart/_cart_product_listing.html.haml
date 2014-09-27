@@ -24,7 +24,7 @@
                 {{cart_item.price}}
 
         %td.delete
-          %a{:title => "Delete"}
+          %a{:title => "Delete", "ng-click"=>"deleteCartItem(cart_item.id)"}
             %i.glyphicon.glyphicon-trash.fa-2x
 
         %td

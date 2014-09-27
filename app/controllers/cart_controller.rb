@@ -25,6 +25,12 @@ class CartController < ApplicationController
     render :json => as_hash(cart_items)
   end
 
+  def destroy
+    cart_item = ShoppingCartItem.where(id: params[:id]).first
+    guest_shopping_cart.delete(cart_item) if cart_item.present?
+    render :json => as_hash(guest_shopping_cart.shopping_cart_items)
+  end
+
   def update
     cart_items = request[:cart_items]
     guest_shopping_cart.update_cart_with cart_items

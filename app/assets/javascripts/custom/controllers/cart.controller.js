@@ -28,4 +28,8 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
     return $scope.product_total() + $scope.tax();
   };
 
+  $scope.deleteCartItem = function(itemId) {
+    CartService.deleteCartItem(itemId);
+  }
+
 }]);

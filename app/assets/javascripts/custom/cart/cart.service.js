@@ -26,5 +26,11 @@ angular.module('kalakrati.services', []).
       return cartItems;
     };
 
+    cartAPI.deleteCartItem = function(itemId) {
+      $http.delete('/cart/item/'+itemId).success(function(data) {
+        cartItems = data;
+      });
+    }
+
     return cartAPI;
 }]);

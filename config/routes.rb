@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   put 'cart/add' => 'cart#add'
   get 'cart/items' => 'cart#index'
   put 'cart/items' => 'cart#update'
+  delete 'cart/item/:id' => 'cart#destroy'
 
   resources :categories do
     resources :products
