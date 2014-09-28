@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   put 'cart/items' => 'cart#update'
   delete 'cart/item/:id' => 'cart#destroy'
 
-  get 'contactus' => 'contact_us#show'
+  get 'information/contactus' => 'information#contact'
+  get 'information/about' => 'information#about'
+  get 'information/conditions' => 'information#tnc'
 
   resources :categories do
     resources :products

@@ -1,0 +1,21 @@
+= render partial: "map"
+.wrapper.whitebg.contact-us
+  .container.main-container
+    .row.innerPage
+      .col-lg-12.col-md-12.col-sm-12
+        .row.userInfo
+          .col-xs-12.col-sm-12
+            = render partial: "contact_us_header"
+            .row
+              = render partial: "contact_details"
+              = render partial: "orders_contact"
+              
+              %div{:style=>"clear:both"}
+              %hr
+              %div{:style=>"clear:both"}
+
+              = render partial: "feedback"
+              = render partial: "enquiries"
+              
+      %div{:style=>"clear:both"}
+    .gap
