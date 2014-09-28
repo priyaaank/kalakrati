@@ -1,10 +1,10 @@
 .breadcrumbDiv.col-lg-12
   %ul.breadcrumb
     %li
-      %a(href="index.html")Home
+      %a(href="#{root_path}")Home
     - breadcrumbs_for(@product).each do |breadcrumb|
       %li
-        %a(href="#")
+        %a(href="#{category_products_path(breadcrumb)}")
           = breadcrumb.name
     %li.active
       = @product.name
