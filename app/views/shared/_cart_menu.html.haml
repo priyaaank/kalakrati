@@ -29,4 +29,4 @@
       %h3.text-right.subtotal Subtotal: {{product_total()}}
       %a.btn.btn-sm.btn-danger{:href=>"#{cart_url}"} 
         %i.fa.fa-shopping-cart VIEW CART
-      %a.btn.btn-sm.btn-primary CHECKOUT
+      %a.btn.btn-sm.btn-primary{:href => "#{checkout_address_path}"} CHECKOUT
