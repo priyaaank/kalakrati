@@ -1,0 +1,65 @@
+.row.userInfo
+  .col-lg-12
+    %h2.block-title-2 To add an address for shipping, please fill out the form below.
+  
+  %form
+    .col-xs-12.col-sm-6
+      .form-group.required
+        %label{:for=>"InputName"}
+          First Name 
+          %sup*
+        %input.form-control#InputName{:required => "", :type=>"text", :placeholder=>"First Name"}
+      .form-group.required
+        %label{:for=>"InputLastName"}
+          Last Name 
+          %sup*
+        %input.form-control#InputLastName{:required => "", :type=>"text", :placeholder=>"Last Name"}
+      .form-group
+        %label{:for=>"InputEmail"}
+          Email
+        %input.form-control#InputEmail{:type=>"text", :placeholder=>"Email"}
+      .form-group.required
+        %label{:for=>"InputAddress"}
+          Address
+          %sup*
+        %input.form-control#InputAddress{:required => "", :type=>"text", :placeholder=>"Address"}
+      .form-group
+        %label{:for=>"InputAddress2"}
+          Address (Line 2)
+        %input.form-control#InputAddress2{:type=>"text", :placeholder=>"Address"}
+      .form-group.required
+        %label{:for=>"InputCity"}
+          City
+          %sup*
+        %input.form-control#InputCity{:required => "", :type=>"text", :placeholder=>"City"}
+      .form-group.required
+        %label{:for=>"InputState"}
+          State 
+          %sup*
+        %select.form-control#InputState{:required=>"", "aria-required"=>"true", :name=>"InputState"}
+          %option{:value=>""}Choose
+          %option{:value=>"1"}Alabama
+          %option{:value=>"2"}Whatever
+    .col-xs-12.col-sm-6
+      .form-group.required
+        %label{:for=>"InputZip"}
+          Zip / Postal Code 
+          %sup*
+        %input.form-control#InputZip{:required=>"", :type=>"text", :placeholder=>"Zip / Postal Code"}
+      .form-group.required
+        %label{:for=>"InputCountry"}
+          Country 
+          %sup*
+        %select.form-control#InputCountry{:required=>"", "aria-required"=>"true", :name=>"InputCountry"}
+          %option{:value=>""}Choose
+          %option{:value=>"1"}India
+          %option{:value=>"2"}United States
+      .form-group
+        %label{:for=>"InputAdditionalInformation"}
+          Additional information
+        %textarea.form-control#InputAdditionalInformation{:rows=>"3", :cols=>"26", :name=>"InputAdditionalInformation"}
+      .form-group.required
+        %label{:for=>"InputMobile"}
+          Mobile phone
+          %sup*
+        %input.form-control#InputMobile{:required => "", :type=>"tel"}

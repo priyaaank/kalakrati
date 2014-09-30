@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get 'information/about' => 'information#about'
   get 'information/conditions' => 'information#tnc'
 
+  get 'checkout/address' => "checkout#address"
+  get 'checkout/payment' => "checkout#payment"
+
   resources :categories do
     resources :products
   end
