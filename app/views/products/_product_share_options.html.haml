@@ -7,5 +7,5 @@
     %i.fa.fa-twitter
   %a{:href => "https://plus.google.com/share?url=#{product_url(@product)}", :onclick=>"window.open(this.href, 'googleplus-share', 'width=550,height=235');return false;"}
     %i.fa.fa-google-plus
-  %a{:href => "http://www.pinterest.com/pin/create/button/?url=#{product_url(@product)}&media=#{request.base_url}/#{@product.primary_image.url}&description=#{@product.name}", :onclick=>"window.open(this.href, 'pintrest-share', 'width=550,height=235');return false;"}
+  %a{:href => "http://www.pinterest.com/pin/create/button/?url=#{product_url(@product)}&media=#{request.base_url}/#{asset_path(@product.primary_image.url)}&description=#{@product.name}", :onclick=>"window.open(this.href, 'pintrest-share', 'width=550,height=235');return false;"}
     %i.fa.fa-pinterest
