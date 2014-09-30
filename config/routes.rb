@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get 'checkout/address' => "checkout#address"
   get 'checkout/payment' => "checkout#payment"
+  get 'checkout/confirm' => "checkout#confirm"
 
   resources :categories do
     resources :products

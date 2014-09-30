@@ -10,4 +10,8 @@ class CheckoutController < ApplicationController
     render :payment
   end
 
+  def confirm
+    render :confirmation
+  end
+
 end
