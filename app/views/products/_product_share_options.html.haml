@@ -1,11 +1,11 @@
 .product-share.clearfix
   %p SHARE
 .socialIcon
-  %a{:href => "#"}
+  %a{:href => "https://www.facebook.com/sharer/sharer.php?u=#{product_url(@product)}", :onclick=>"window.open(this.href, 'facebook-share', 'width=550,height=235');return false;"}
     %i.fa.fa-facebook
-  %a{:href => "#"}
+  %a{:href => "http://twitter.com/share?text=#{@product.name}&url=#{product_url(@product)}", :onclick=>"window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"}
     %i.fa.fa-twitter
-  %a{:href => "#"}
+  %a{:href => "https://plus.google.com/share?url=#{product_url(@product)}", :onclick=>"window.open(this.href, 'googleplus-share', 'width=550,height=235');return false;"}
     %i.fa.fa-google-plus
-  %a{:href => "#"}
+  %a{:href => "http://www.pinterest.com/pin/create/button/?url=#{product_url(@product)}", :onclick=>"window.open(this.href, 'pintrest-share', 'width=550,height=235');return false;"}
     %i.fa.fa-pinterest
