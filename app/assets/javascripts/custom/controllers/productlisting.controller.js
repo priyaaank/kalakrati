@@ -1,7 +1,6 @@
-kalakratiApp.controller('ProductListingController', ['$scope','$http','CartService', function($scope, $http, CartService) {
-      $http.get('products').success(function(data) {
-        $scope.products = data;
-      });
+kalakratiApp.controller('ProductListingController', ['$scope', '$http', 'CartService', 'ProductService', function ($scope, $http, CartService, ProductService) {
+
+      $scope.featured_products = ProductService.FeaturedProducts;
 
       $scope.addToCart = function(productId) {
         var data = {
@@ -11,9 +10,13 @@ kalakratiApp.controller('ProductListingController', ['$scope','$http','CartServi
 
         $http.put('cart/add', data).
           success(function(response) {
-            CartService.refreshCartItems();
+            CartService.RefreshCartItems();
           });
        };
+
+       ProductService.fetchFeaturedProducts().then(function() {
+        $scope.featured_products = ProductService.FeaturedProducts;
+       });
     }
-  ]
+]
 );

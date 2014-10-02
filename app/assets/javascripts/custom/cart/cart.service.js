@@ -1,15 +1,16 @@
 angular.module('kalakrati.services', []).
-  factory('CartService', ['$http', function($http) {
-    var cartItems = [];
-    var cartAPI = {};
+  factory('CartService', ['$http','$rootScope', function CartService($http, $rootScope) {
 
-    cartAPI.refreshCartItems = function() {
-      $http.get('/cart/items').success(function(data) {
-        cartItems = data;
+    CartService.CartItems = [];
+
+    CartService.RefreshCartItems = function() {
+      return $http.get('/cart/items').success(function(data) {
+        CartService.CartItems = data;
+        $rootScope.$broadcast('cart:itemsUpdated');
       });
     };
 
-    cartAPI.updateCartItems = function(items) {
+    CartService.UpdateCartItems = function(items) {
       var data = {"cart_items" : []}; 
       for(index in items) {
         data["cart_items"].push({
@@ -17,20 +18,18 @@ angular.module('kalakrati.services', []).
           'id': items[index].id.toString()
         });
       }
-      $http.put('/cart/items', data).success(function(data) {
-        cartItems = data;
+      return $http.put('/cart/items', data).success(function(data) {
+        CartService.CartItems = data;
+        $rootScope.$broadcast('cart:itemsUpdated');
       });
     };
 
-    cartAPI.cartItems = function() {
-      return cartItems;
-    };
-
-    cartAPI.deleteCartItem = function(itemId) {
-      $http.delete('/cart/item/'+itemId).success(function(data) {
-        cartItems = data;
+    CartService.DeleteCartItem = function(itemId) {
+      return $http.delete('/cart/item/'+itemId).success(function(data) {
+        CartService.CartItems = data;
+        $rootScope.$broadcast('cart:itemsUpdated');
       });
     }
 
-    return cartAPI;
+    return CartService;
 }]);
