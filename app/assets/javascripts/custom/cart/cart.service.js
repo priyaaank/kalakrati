@@ -29,7 +29,22 @@ angular.module('kalakrati.services', []).
         CartService.CartItems = data;
         $rootScope.$broadcast('cart:itemsUpdated');
       });
-    }
+    };
+
+    CartService.AddItemToCart = function(itemId, quantity) {
+      var data = {
+        "productId" : itemId,
+        "quantity"  : 1
+      };
+
+      return $http.put('cart/add', data).
+        success(function(response) {
+          CartService.RefreshCartItems();
+        }).
+        error(function() {
+          console.log("Error adding item to cart");
+        });
+    };
 
     return CartService;
 }]);

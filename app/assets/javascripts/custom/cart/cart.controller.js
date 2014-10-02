@@ -2,15 +2,13 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
 
   $scope.cart_items = CartService.CartItems; 
 
-  var cartUpdateSubscription = $scope.$on('cart:itemsUpdated',function() {
+  var cartUpdateSubscription = $scope.$on('cart:itemsUpdated',function(event, data) {
     $scope.cart_items = CartService.CartItems;
   });
   $scope.$on('$destroy', cartUpdateSubscription);
 
   $scope.updateCartItems = function() {
-    CartService.UpdateCartItems($scope.cart_items).then(function() {
-      $scope.cart_items = CartService.CartItems;
-    });
+    CartService.UpdateCartItems($scope.cart_items);
   };
 
   CartService.RefreshCartItems().then(function() {
@@ -34,9 +32,7 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
   };
 
   $scope.deleteCartItem = function(itemId) {
-    CartService.DeleteCartItem(itemId).then(function(){
-      $scope.cart_items = CartService.CartItems;
-    });
+    CartService.DeleteCartItem(itemId);
   }
 
 }]);

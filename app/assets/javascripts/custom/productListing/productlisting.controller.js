@@ -3,20 +3,12 @@ kalakratiApp.controller('ProductListingController', ['$scope', '$http', 'CartSer
       $scope.featured_products = ProductService.FeaturedProducts;
 
       $scope.addToCart = function(productId) {
-        var data = {
-          "productId" : productId,
-          "quantity"  : 1
-        };
+        CartService.AddItemToCart(productId, 1);
+      };
 
-        $http.put('cart/add', data).
-          success(function(response) {
-            CartService.RefreshCartItems();
-          });
-       };
-
-       ProductService.fetchFeaturedProducts().then(function() {
+      ProductService.fetchFeaturedProducts().then(function() {
         $scope.featured_products = ProductService.FeaturedProducts;
-       });
+      });
     }
 ]
 );
