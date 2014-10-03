@@ -2,36 +2,48 @@
   .col-lg-12
     %h2.block-title-2 To add an address for shipping, please fill out the form below.
   
-  %form
+  %form#addressDetails{name: "addressDetails", novalidate: ""}
     .col-xs-12.col-sm-6
       .form-group.required
-        %label{:for=>"InputName"}
+        %label{:for=>"firstName"}
           First Name 
           %sup*
-        %input.form-control#InputName{:required => "", :type=>"text", :placeholder=>"First Name"}
+        %input.form-control#firstName{name: "firstName", "ng-required" => "true", type: "text", placeholder: "First Name", "ng-minlength" => "3", "ng-maxlength" => "100", "ng-model" => "firstName"}
+        %p{:"ng-show" => "addressDetails.firstName.$error.required"} First name is required.
+        %p{:"ng-show" => "addressDetails.firstName.$error.minlength"} First name is too short.
+        %p{"ng-show" => "addressDetails.firstName.$error.maxlength"} First name is too long.
       .form-group.required
-        %label{:for=>"InputLastName"}
+        %label{:for=>"lastName"}
           Last Name 
           %sup*
-        %input.form-control#InputLastName{:required => "", :type=>"text", :placeholder=>"Last Name"}
+        %input.form-control#lastName{name: "lastName", "ng-required" => "true", :type=>"text", :placeholder=>"Last Name", "ng-minlength" => "3", "ng-maxlength" => "100", "ng-model" => "lastName"}
+        %p{"ng-show" => "addressDetails.lastName.$error.required"} Last name is required.
+        %p{"ng-show" => "addressDetails.lastName.$error.minlength"} Last name is too short.
+        %p{"ng-show" => "addressDetails.lastName.$error.maxlength"} Last name is too long.
       .form-group
-        %label{:for=>"InputEmail"}
+        %label{:for=>"email"}
           Email
-        %input.form-control#InputEmail{:type=>"text", :placeholder=>"Email"}
+        %input.form-control#email{:type=>"email", :placeholder=>"Email", "ng-model" => "email", "ng-maxlength" => "100"}
+        %p{"ng-show" => "addressDetails.$error.email"} Email format is invalid.
+        %p{"ng-show" => "addressDetails.email.$error.maxlength"} Email address is too long.
       .form-group.required
-        %label{:for=>"InputAddress"}
+        %label{:for=>"addressLine1"}
           Address
           %sup*
-        %input.form-control#InputAddress{:required => "", :type=>"text", :placeholder=>"Address"}
+        %input.form-control#addressLine1{"name" => "addressLine1", "ng-required" => "true", :type=>"text", :placeholder=>"Address", "ng-maxlength" => "300", "ng-model" => "addressLine1"}
+        %p{"ng-show" => "addressDetails.addressLine1.$error.required"} Address is required 
+        %p{"ng-show" => "addressDetails.addressLine1.$error.maxlength"} Address cannot be more than 300 characters.
       .form-group
-        %label{:for=>"InputAddress2"}
+        %label{:for=>"addressLine2"}
           Address (Line 2)
-        %input.form-control#InputAddress2{:type=>"text", :placeholder=>"Address"}
+        %input.form-control#addressLine2{"name" => "addressLine2", :type=>"text", :placeholder=>"Address", "ng-model" => "addressLine2", "ng-maxlength" => "300"}
+        %p{"ng-show" => "addressDetails.addressLine2.$error.maxlength"} Address cannot be more than 300 characters.
       .form-group.required
-        %label{:for=>"InputCity"}
+        %label{:for=>"city"}
           City
           %sup*
-        %input.form-control#InputCity{:required => "", :type=>"text", :placeholder=>"City"}
+        %input.form-control#city{:name=>"city", "ng-model" => "city", "ng-required" => "true", :type=>"text", :placeholder=>"City"}
+        %p{"ng-show" => "addressDetails.city.$error.required"} City is required 
       .form-group.required
         %label{:for=>"InputState"}
           State 
@@ -42,10 +54,13 @@
           %option{:value=>"2"}Whatever
     .col-xs-12.col-sm-6
       .form-group.required
-        %label{:for=>"InputZip"}
+        %label{:for=>"zipcode"}
           Zip / Postal Code 
           %sup*
-        %input.form-control#InputZip{:required=>"", :type=>"text", :placeholder=>"Zip / Postal Code"}
+        %input.form-control#zipcode{:name=> "zipcode", "ng-model" => "zipcode", "ng-required" =>"true", :type=>"text", "ng-minlength" => "6", "ng-maxlength" => "6", :placeholder=>"Zip / Postal Code"}
+        %p{"ng-show" => "addressDetails.zipcode.$error.required"} Pincode is required 
+        %p{"ng-show" => "addressDetails.zipcode.$error.maxlength"} Pincode needs to be exactly 6 digits.
+        %p{"ng-show" => "addressDetails.zipcode.$error.minlength"} Pincode needs to be exactly 6 digits 
       .form-group.required
         %label{:for=>"InputCountry"}
           Country 
@@ -59,7 +74,9 @@
           Additional information
         %textarea.form-control#InputAdditionalInformation{:rows=>"3", :cols=>"26", :name=>"InputAdditionalInformation"}
       .form-group.required
-        %label{:for=>"InputMobile"}
+        %label{:for=>"mobile"}
           Mobile phone
           %sup*
-        %input.form-control#InputMobile{:required => "", :type=>"tel"}
+        %input.form-control#mobile{name:"mobile", "ng-pattern" => "/^\\d{10}$/", "ng-model" => "mobile", "ng-required" => "true", :type=>"text"}
+        %p{"ng-show" => "addressDetails.mobile.$error.required"} Mobile phone is required 
+        %p{"ng-show" => "addressDetails.mobile.$error.pattern"} Mobile phone needs to 10 digits, without country code 

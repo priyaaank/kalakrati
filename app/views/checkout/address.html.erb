@@ -4,7 +4,7 @@
 
   <%= render partial: "checkout_header" %> 
   
-  <div class="row">
+  <div class="row" ng-controller="CheckoutController">
     <div class="col-lg-9 col-md-9 col-sm-12">
       <div class="row userInfo">
         <div class="col-xs-12 col-sm-12">
@@ -17,7 +17,7 @@
           <div class="cartFooter w100">
             <div class="box-footer">
               <div class="pull-left"> <a class="btn btn-default" href="<%= root_path %>"> <i class="fa fa-arrow-left"></i> &nbsp; Back to Shop </a> </div>
-              <div class="pull-right"> <a class="btn btn-primary btn-small" href="<%= checkout_payment_path %>"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
+              <div class="pull-right"> <a class="btn btn-primary btn-small" ng-disabled="{{addressDetails.$invalid}}" href="<%= checkout_payment_path %>"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
             </div>
           </div>
           <!--/ cartFooter --> 

@@ -37,7 +37,7 @@ angular.module('kalakrati.services', []).
         "quantity"  : 1
       };
 
-      return $http.put('cart/add', data).
+      return $http.put('/cart/add', data).
         success(function(response) {
           CartService.RefreshCartItems();
         }).

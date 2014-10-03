@@ -1,6 +1,6 @@
 .cart-actions
   .addto
-    %button{:onclick=>"productAddToCartForm.submit(this);", :class=>"button btn-cart cart first", :title=>"Add to Cart", :type=>"button"} Add to Cart
+    %button{"ng-click"=>"AddToCart('#{@product.id}')", :class=>"button btn-cart cart first", :title=>"Add to Cart", :type=>"button"} Add to Cart
     %a.link-wishlist.wishlist{:style => "display:none;"} Add to Wishlist
 
   %div{:style => "clear:both"}
