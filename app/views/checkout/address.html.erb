@@ -9,15 +9,15 @@
       <div class="row userInfo">
         <div class="col-xs-12 col-sm-12">
 
-          <%= render partial: "checkout_section", locals: {current_section: "Address"} %>
+          <%= render partial: "checkout_section", locals: {current_section: "Address", ng_class: "{'disabled': addressDetails.$invalid}"} %>
           
           <div class="w100 clearfix">
             <%= render partial: "address_fields" %> 
           </div>
           <div class="cartFooter w100">
             <div class="box-footer">
-              <div class="pull-left"> <a class="btn btn-default" href="<%= root_path %>"> <i class="fa fa-arrow-left"></i> &nbsp; Back to Shop </a> </div>
-              <div class="pull-right"> <a class="btn btn-primary btn-small" ng-disabled="{{addressDetails.$invalid}}" href="<%= checkout_payment_path %>"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
+              <div class="pull-left"> <a class="btn btn-primary" href="<%= root_path %>"> <i class="fa fa-arrow-left"></i> &nbsp; Back to Shop </a> </div>
+              <div class="pull-right"> <a ng-class="{'disabled': addressDetails.$invalid, 'btn-default': addressDetails.$invalid, 'btn-primary': !addressDetails.$invalid}" class="btn btn-small" ng-disabled="{{addressDetails.$invalid}}" href="<%= checkout_payment_path %>"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
             </div>
           </div>
           <!--/ cartFooter --> 
