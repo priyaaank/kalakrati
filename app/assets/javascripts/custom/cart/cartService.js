@@ -1,4 +1,4 @@
-angular.module('kalakrati.services', []).
+angular.module('kalakrati.services').
   factory('CartService', ['$http','$rootScope', function CartService($http, $rootScope) {
 
     CartService.CartItems = [];

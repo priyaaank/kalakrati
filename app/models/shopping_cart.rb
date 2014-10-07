@@ -3,6 +3,7 @@ class ShoppingCart
   include Mongoid::Document
 
   has_many :shopping_cart_items
+  embeds_one :address
 
   def add(product, quantity=1)
     shopping_cart_item = shopping_cart_items.find_or_create_by(product_id: product.id)
@@ -18,6 +19,12 @@ class ShoppingCart
     items_to_delete = deleted_item_ids(items)
     delete_removed_cart_items(items_to_delete)
     update_quantities_for(items)
+  end
+
+  def update_address address
+    puts "updating address for shopping cart id: #{self.id}"
+    puts address.inspect
+    self.update_attribute(:address, address)
   end
 
   private

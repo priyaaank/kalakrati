@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'information/conditions' => 'information#tnc'
 
   get 'checkout/address' => "checkout#address"
+  post 'checkout/address' => "checkout#create_address"
   get 'checkout/payment' => "checkout#payment"
   get 'checkout/confirm' => "checkout#confirm"
 
