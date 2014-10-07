@@ -2,6 +2,9 @@ class ShoppingCart
 
   include Mongoid::Document
 
+  field :tnc_acceptance, type: Boolean, default: false
+  field :payment_notes, type: String
+
   has_many :shopping_cart_items
   embeds_one :address
 
@@ -25,6 +28,10 @@ class ShoppingCart
     puts "updating address for shopping cart id: #{self.id}"
     puts address.inspect
     self.update_attribute(:address, address)
+  end
+
+  def update_payment payment_details
+    self.update_attributes(tnc_acceptance: true, payment_notes: payment_details["payment_notes"])
   end
 
   private

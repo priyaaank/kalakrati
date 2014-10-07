@@ -27,11 +27,25 @@ class CheckoutController < ApplicationController
   end
 
   def payment
-    render :payment
+    @payment = {tnc_acceptance: guest_shopping_cart.tnc_acceptance, payment_notes: guest_shopping_cart.payment_notes}
+    respond_to do |format|
+      format.html
+      format.json {render json: @payment}
+    end
+  end
+
+  def update_payment
+    payment_details = request.body.read
+    guest_shopping_cart.update_payment(JSON.parse(payment_details))
+    response = { confirmationUrl: confirmation_path_from(request) }
+    render json: response
   end
 
   def confirm
-    render :confirmation
+    respond_to do |format|
+      format.html { render :confirmation  }
+      format.json { render json: @payment }
+    end
   end
 
   private
@@ -40,4 +54,7 @@ class CheckoutController < ApplicationController
     request.protocol + request.host_with_port + checkout_payment_path
   end
 
+  def confirmation_path_from request
+    request.protocol + request.host_with_port + checkout_confirm_path
+  end
 end

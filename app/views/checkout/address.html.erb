@@ -17,7 +17,7 @@
           <div class="cartFooter w100">
             <div class="box-footer">
               <div class="pull-left"> <a class="btn btn-primary" href="<%= root_path %>"> <i class="fa fa-arrow-left"></i> &nbsp; Back to Shop </a> </div>
-              <div class="pull-right"> <a ng-class="{'disabled': addressDetails.$invalid, 'btn-default': addressDetails.$invalid, 'btn-primary': !addressDetails.$invalid}" class="btn btn-small" ng-disabled="{{addressDetails.$invalid}}" ng-click="submitForm(!addressDetails.$invalid)"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
+              <div class="pull-right"> <a ng-class="{'disabled': addressDetails.$invalid, 'btn-default': addressDetails.$invalid, 'btn-primary': !addressDetails.$invalid}" class="btn btn-small" ng-disabled="{{addressDetails.$invalid}}" ng-click="submitAddressDetails(!addressDetails.$invalid)"> Make payment &nbsp; <i class="fa fa-arrow-circle-right"></i> </a> </div>
             </div>
           </div>
           <!--/ cartFooter --> 
