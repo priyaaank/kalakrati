@@ -1,0 +1,30 @@
+.w100.clearfix
+  .row.userInfo
+    .col-lg-12
+      %h2.block-title-2 Order Cofirmed
+
+    .col-xs-12.col-sm-12
+      .cartContent.w100.checkoutReview
+        %table.cartTable.table-responsive{:style=>"width:100%"}
+          %tbody
+          %tr.CartProduct.cartTableHeader
+            %th{:style=>"width:15%"} Product
+            %th.checkoutReviewTdDetails Details
+            %th{:style=>"width:10%"} Unit Price
+            %th.hidden-xs{:style=>"width:15%"} QNT
+            %th{:style=>"width:15%"}Total
+          %tr.CartProduct{"ng-repeat" => "item in cart_items"}
+            %td.CartProductThumb
+              %div
+                %a{:href=>"{{item.details_url}}"}
+                  %img{"ng-src"=>"{{item.thumbnail_url}}"}
+            %td
+              .CartDescription
+                %h4
+                  %a{:href=>"{{item.details_url}}"} {{item.name}}
+                %span.size
+                  {{item.description}}
+            %td.delete
+              .price {{item.price}}
+            %td.hidden-xs {{item.quantity}}
+            %td.price {{item.quantity * item.price}}

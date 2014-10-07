@@ -2,6 +2,6 @@
   %ul.orderStep
     - checkout_steps.each do | value_hash |
       %li{:class => "#{current_section == value_hash[:name] ? 'active' : ''}"}
-        %a{:href=>"#{value_hash[:section_url]}", "ng-class" => "#{ng_class}"}
+        %a.disabled
           %i.fa{:class => "#{value_hash[:icon_class]}"}
           %span #{value_hash[:name]}
