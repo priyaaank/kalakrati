@@ -15,4 +15,3 @@
 //= require ../../../lib/assets/bower_components/angular-route/angular-route
 //= require ./custom/kalakrati.app
 //= require_tree .
-//= require_tree ../templates
