@@ -37,14 +37,17 @@ class CheckoutController < ApplicationController
   def update_payment
     payment_details = request.body.read
     guest_shopping_cart.update_payment(JSON.parse(payment_details))
-    response = { confirmationUrl: confirmation_path_from(request) }
-    render json: response
+    # order = guest_shopping_cart.generate_order
+    order = Order.new
+    response = { orderUrl: checkout_order_path_from(request, order) }
+    render json: response, status: 200
   end
 
-  def confirm
+  def show_order
+    @order = Order.where(id: params[:id]).first
     respond_to do |format|
-      format.html { render :confirmation  }
-      format.json { render json: @payment }
+      format.html { render }
+      format.json { render json: @payment}
     end
   end
 
@@ -54,7 +57,7 @@ class CheckoutController < ApplicationController
     request.protocol + request.host_with_port + checkout_payment_path
   end
 
-  def confirmation_path_from request
-    request.protocol + request.host_with_port + checkout_confirm_path
+  def checkout_order_path_from request, order
+    request.protocol + request.host_with_port + checkout_order_path(order.id)
   end
 end

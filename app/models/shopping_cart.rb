@@ -5,7 +5,7 @@ class ShoppingCart
   field :tnc_acceptance, type: Boolean, default: false
   field :payment_notes, type: String
 
-  has_many :shopping_cart_items
+  has_many :shopping_cart_items, dependent: :delete
   embeds_one :address
 
   def add(product, quantity=1)
@@ -14,7 +14,7 @@ class ShoppingCart
     shopping_cart_item.save!
   end
 
-  def delete cart_item
+  def delete_item cart_item
     shopping_cart_items.destroy_all(id: cart_item.id)
   end
 
@@ -32,6 +32,17 @@ class ShoppingCart
 
   def update_payment payment_details
     self.update_attributes(tnc_acceptance: true, payment_notes: payment_details["payment_notes"])
+  end
+
+  def generate_order
+    order = Order.from_cart self
+    if order.present? and order.persisted?
+      self.destroy
+    end
+    puts "*"*100
+    puts order.id
+    puts "*"*100
+    order
   end
 
   private

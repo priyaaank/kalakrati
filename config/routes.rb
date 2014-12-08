@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   post 'checkout/address' => "checkout#create_address"
   get 'checkout/payment' => "checkout#payment"
   put 'checkout/payment' => "checkout#update_payment"
-  get 'checkout/confirm' => "checkout#confirm"
+  get 'checkout/order/:id' => "checkout#show_order", as: :checkout_order
+  # get 'checkout/confirm/:cart_id' => "checkout#confirm", as: :confirm_cart
 
   resources :categories do
     resources :products

@@ -25,8 +25,8 @@ angular.module('kalakrati.services').
   };
 
   CheckoutService.UpdatePaymentDetails = function(paymentDetails) {
-    return $http.put('/checkout/payment', paymentDetails).success(function(data) {
-      CheckoutService.ConfirmationUrl = data.confirmationUrl;
+    return $http.put('/checkout/payment.json', paymentDetails).success(function(data) {
+      CheckoutService.ConfirmationUrl = data.orderUrl;
     });
   };
 

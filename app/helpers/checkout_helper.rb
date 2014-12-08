@@ -15,7 +15,7 @@ module CheckoutHelper
       {
         :name => 'Order',
         :icon_class => "fa-check-square",
-        :section_url => checkout_confirm_path
+        :section_url => ""
       }
     ]
   end
