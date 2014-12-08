@@ -39,9 +39,6 @@ class ShoppingCart
     if order.present? and order.persisted?
       self.destroy
     end
-    puts "*"*100
-    puts order.id
-    puts "*"*100
     order
   end
 
