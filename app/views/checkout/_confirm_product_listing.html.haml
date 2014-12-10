@@ -13,7 +13,7 @@
             %th{:style=>"width:10%"} Unit Price
             %th.hidden-xs{:style=>"width:15%"} QNT
             %th{:style=>"width:15%"}Total
-          %tr.CartProduct{"ng-repeat" => "item in cart_items"}
+          %tr.CartProduct{"ng-repeat" => "item in order_items"}
             %td.CartProductThumb
               %div
                 %a{:href=>"{{item.details_url}}"}

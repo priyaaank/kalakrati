@@ -53,7 +53,23 @@ class CheckoutController < ApplicationController
   private
 
   def json_response_from order
-    {id: order.id}
+    {
+        id: order.id,
+        order_items: order_items_from(order)
+    }
+  end
+
+  def order_items_from order
+    order.order_items.collect do |item|
+      {
+        name: item.product.name,
+        description: item.product.description,
+        price: item.product.price,
+        quantity: item.quantity,
+        thumbnail_url: img_url(item.product.images.first.url),
+        details_url: url_for(item.product)
+      }
+    end
   end
 
   def payment_path_from request
@@ -62,5 +78,9 @@ class CheckoutController < ApplicationController
 
   def checkout_order_path_from request, order
     request.protocol + request.host_with_port + checkout_order_path(order.id)
+  end
+
+  def img_url image
+    ActionController::Base.helpers.asset_path(image)
   end
 end

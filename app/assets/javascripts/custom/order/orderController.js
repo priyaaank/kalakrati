@@ -3,7 +3,8 @@ kalakratiApp.controller('OrderController', ['$scope', '$location', '$window', 'O
     $scope.order = OrderService.Order;
 
     OrderService.FetchOrderDetails($window.location.href).then(function() {
-        $scope.order = CheckoutService.Order;
+        $scope.order = OrderService.Order;
+        $scope.order_items = OrderService.Order.order_items;
     });
     
   }
