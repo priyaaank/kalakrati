@@ -64,7 +64,7 @@ class CheckoutController < ApplicationController
       {
         name: item.product.name,
         description: item.product.description,
-        price: item.product.price,
+        price: item.price,
         quantity: item.quantity,
         thumbnail_url: img_url(item.product.images.first.url),
         details_url: url_for(item.product)
