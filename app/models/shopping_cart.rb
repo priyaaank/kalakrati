@@ -4,6 +4,7 @@ class ShoppingCart
 
   field :tnc_acceptance, type: Boolean, default: false
   field :payment_notes, type: String
+  field :currency, type: String, default: Price::Symbol::INR
 
   has_many :shopping_cart_items, dependent: :delete
   embeds_one :address

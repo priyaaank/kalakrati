@@ -10,20 +10,20 @@
             %tbody
               %tr
                 %td Total products
-                %td.price {{product_total()}}
+                %td.price {{currency}} {{product_total()}}
               %tr
                 %td Shipping
                 %td.price
                   %span.success Free shipping!
               %tr.cart-total-price
                 %td Total (tax excl.)
-                %td.price {{product_total()}}
+                %td.price {{currency}} {{product_total()}}
               %tr
                 %td Total tax
-                %td#total-tax.price {{tax()}}
+                %td#total-tax.price {{currency}} {{tax()}}
               %tr
                 %td Total
-                %td.site-color#total-price {{total_cost()}}
+                %td.site-color#total-price {{currency}} {{total_cost()}}
               %tr
                 %td{:colspan=>"2"}
                   .input-append.couponForm

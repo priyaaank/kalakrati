@@ -4,6 +4,7 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
 
   var cartUpdateSubscription = $scope.$on('cart:itemsUpdated',function(event, data) {
     $scope.cart_items = CartService.CartItems;
+    $scope.currency = CartService.Currency;
   });
   $scope.$on('$destroy', cartUpdateSubscription);
 
@@ -13,6 +14,7 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
 
   CartService.RefreshCartItems().then(function() {
     $scope.cart_items = CartService.CartItems;
+    $scope.currency = CartService.Currency;
   });
 
   $scope.product_total = function() {

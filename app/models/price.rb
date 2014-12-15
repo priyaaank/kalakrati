@@ -1,6 +1,6 @@
 class Price
 
-  module SYMBOL
+  module Symbol
     INR = "₹"
   end
 
@@ -10,6 +10,6 @@ class Price
   embedded_in :product
 
   field :amount, type: BigDecimal
-  field :currency, type: String, default: SYMBOL::INR
+  field :currency, type: String, default: Symbol::INR
 
 end

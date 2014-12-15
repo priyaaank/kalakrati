@@ -55,6 +55,7 @@ class CheckoutController < ApplicationController
   def json_response_from order
     {
         id: order.id,
+        currency: order.currency,
         order_items: order_items_from(order)
     }
   end

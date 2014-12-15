@@ -2,10 +2,12 @@ angular.module('kalakrati.services').
   factory('CartService', ['$http','$rootScope', function CartService($http, $rootScope) {
 
     CartService.CartItems = [];
+    CartService.Currency = "";
 
     CartService.RefreshCartItems = function() {
       return $http.get('/cart/items').success(function(data) {
-        CartService.CartItems = data;
+        CartService.CartItems = data.cart_items;
+        CartService.Currency = data.currency;
         $rootScope.$broadcast('cart:itemsUpdated');
       });
     };
@@ -19,14 +21,16 @@ angular.module('kalakrati.services').
         });
       }
       return $http.put('/cart/items', data).success(function(data) {
-        CartService.CartItems = data;
+        CartService.CartItems = data.cart_items;
+        CartService.Currency = data.currency;
         $rootScope.$broadcast('cart:itemsUpdated');
       });
     };
 
     CartService.DeleteCartItem = function(itemId) {
       return $http.delete('/cart/item/'+itemId).success(function(data) {
-        CartService.CartItems = data;
+        CartService.CartItems = data.cart_items;
+        CartService.Currency = data.currency;
         $rootScope.$broadcast('cart:itemsUpdated');
       });
     };

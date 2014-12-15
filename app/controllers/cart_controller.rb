@@ -21,23 +21,29 @@ class CartController < ApplicationController
   end
 
   def index
-    cart_items = guest_shopping_cart.shopping_cart_items
-    render :json => as_hash(cart_items)
+    render :json => cart_response(guest_shopping_cart)
   end
 
   def destroy
     cart_item = ShoppingCartItem.where(id: params[:id]).first
     guest_shopping_cart.delete(cart_item) if cart_item.present?
-    render :json => as_hash(guest_shopping_cart.shopping_cart_items)
+    render :json => cart_response(guest_shopping_cart)
   end
 
   def update
     cart_items = request[:cart_items]
     guest_shopping_cart.update_cart_with cart_items
-    render :json => as_hash(guest_shopping_cart.shopping_cart_items)
+    render :json => cart_response(guest_shopping_cart)
   end
 
   private
+
+  def cart_response shopping_cart
+    {
+        currency: shopping_cart.currency,
+        cart_items: as_hash(shopping_cart.shopping_cart_items)
+    }
+  end
 
   def as_hash items
     items.collect do |item|

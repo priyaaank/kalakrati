@@ -5,6 +5,7 @@ class Order
   has_many :order_items
   embeds_one :address
 
+  field :currency, type: String, default: Price::Symbol::INR
 
   def self.from_cart shopping_cart
     new_order = Order.new
