@@ -10,6 +10,7 @@ class Order
   def self.from_cart shopping_cart
     new_order = Order.new
     new_order.address = shopping_cart.address
+    new_order.currency = shopping_cart.currency
     new_order.order_items = shopping_cart.shopping_cart_items.collect { |item| OrderItem.from_cart_item(item, new_order) }
     new_order.save!
     new_order
