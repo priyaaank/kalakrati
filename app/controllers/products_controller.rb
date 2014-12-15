@@ -33,7 +33,10 @@ class ProductsController < ApplicationController
       :details_url => url_for(product),
       :images => hash_for_images(product.images),
       :name => product.name,
-      :price => product.price,
+      :price => {
+          amount: product.price.amount,
+          currency: product.price.currency
+      },
       :description => product.description,
       :category => {
         :name => product.category.name

@@ -27,6 +27,6 @@
                 %span.size
                   {{item.description}}
             %td.delete
-              .price {{item.price}}
+              .price {{item.price.amount}}
             %td {{item.quantity}}
-            %td.price {{item.quantity * item.price}}
+            %td.price {{item.quantity * item.price.amount}}

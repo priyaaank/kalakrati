@@ -18,7 +18,7 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
   $scope.product_total = function() {
     var prodTotal = 0;
     for(var index in $scope.cart_items) {
-      prodTotal += ($scope.cart_items[index].price * $scope.cart_items[index].quantity);
+      prodTotal += ($scope.cart_items[index].price.amount * $scope.cart_items[index].quantity);
     }
     return prodTotal;
   };

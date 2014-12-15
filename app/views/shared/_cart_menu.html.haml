@@ -16,11 +16,11 @@
                 %h4
                   %a{:href=>"{{cart_item.details_url}}"} {{cart_item.name}}
                 .price
-                  %span Rs.{{cart_item.price}}
+                  %span Rs.{{cart_item.price.amount}}
             %td.miniCartQuantity{:style=>"width:10%"}
               %a X {{cart_item.quantity}}
             %td.miniCartSubtotal{:style=>"width:15%"}
-              %span {{cart_item.quantity * cart_item.price}}
+              %span {{cart_item.quantity * cart_item.price.amount}}
             %td.delete{:style=>"width:5%"}
               %a{"ng-click"=>"deleteCartItem(cart_item.id)"}
                 %i.glyphicon.glyphicon-trash.fa-x

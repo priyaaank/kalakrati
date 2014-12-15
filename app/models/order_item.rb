@@ -4,10 +4,10 @@ class OrderItem
 
   belongs_to :product
   belongs_to :order
+  embeds_one :price
   
   field :discount, type: Float, default: 0
   field :quantity, type: Integer, default: 0
-  field :price, type: BigDecimal
 
   validates_numericality_of :quantity, less_then: 1000, greater_then_or_equal_to: 0
 

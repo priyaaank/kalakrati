@@ -44,7 +44,10 @@ class CartController < ApplicationController
       {
         id: item.id.to_s,
         name: item.product.name,
-        price: item.product.price,
+        price: {
+            amount: item.product.price.amount,
+            currency: item.product.price.currency
+        },
         description: item.product.description,
         quantity: item.quantity,
         thumbnail_url: img_url(item.product.images.first.url),

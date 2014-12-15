@@ -21,7 +21,7 @@
               %p {{product.description}}
               %span.size {{product.category.name}}
             .price
-              %span {{product.price}}
+              %span {{product.price.amount}}
             .action-control
               %a.btn.btn-primary{"ng-click"=>"addToCart(product.id)"}
                 %span.add2cart
