@@ -4,9 +4,9 @@
   = @product.code
 .product-price
   %span.price-sales
-    = @product.price.amount
+    = "#{@product.price.currency} #{@product.price.amount}"
   %span.price-standard
-    = @product.price.amount
+    = "#{@product.price.currency} #{@product.price.amount}"
 
 .details-description
   %p "#{@product.description}"

@@ -5,6 +5,7 @@ class Order
   has_many :order_items
   embeds_one :address
 
+
   def self.from_cart shopping_cart
     new_order = Order.new
     new_order.address = shopping_cart.address

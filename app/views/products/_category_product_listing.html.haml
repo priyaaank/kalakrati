@@ -49,7 +49,7 @@
                   = product.description
               .price
                 %span 
-                  = product.price
+                  = "#{product.price.currency} #{product.price.amount}"
               .action-control
                 %a.btn.btn-primary
                   %span.add2cart
