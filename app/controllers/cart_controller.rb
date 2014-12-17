@@ -26,7 +26,7 @@ class CartController < ApplicationController
 
   def destroy
     cart_item = ShoppingCartItem.where(id: params[:id]).first
-    guest_shopping_cart.delete(cart_item) if cart_item.present?
+    guest_shopping_cart.delete_item(cart_item) if cart_item.present?
     render :json => cart_response(guest_shopping_cart)
   end
 
