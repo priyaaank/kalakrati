@@ -50,5 +50,21 @@ angular.module('kalakrati.services').
         });
     };
 
+    CartService.ProductTotal = function() {
+        var prodTotal = 0;
+        for(var index in CartService.CartItems) {
+            prodTotal += (CartService.CartItems[index].price.amount * CartService.CartItems[index].quantity);
+        }
+        return prodTotal;
+    };
+
+    CartService.Tax = function() {
+        return 0;
+    };
+
+    CartService.TotalCost = function() {
+        return  CartService.ProductTotal() +  CartService.Tax();
+    };
+
     return CartService;
 }]);

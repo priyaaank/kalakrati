@@ -17,21 +17,9 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
     $scope.currency = CartService.Currency;
   });
 
-  $scope.product_total = function() {
-    var prodTotal = 0;
-    for(var index in $scope.cart_items) {
-      prodTotal += ($scope.cart_items[index].price.amount * $scope.cart_items[index].quantity);
-    }
-    return prodTotal;
-  };
-
-  $scope.tax = function() {
-    return 0;
-  };
-
-  $scope.total_cost = function() {
-    return $scope.product_total() + $scope.tax();
-  };
+  $scope.product_total = CartService.ProductTotal;
+  $scope.tax = CartService.Tax;
+  $scope.total_cost = CartService.TotalCost;
 
   $scope.deleteCartItem = function(itemId) {
     CartService.DeleteCartItem(itemId);

@@ -1,20 +1,19 @@
 .w100.cartMiniTable
-  %table.std.table#cart-summary
+  %table#cart-summary.std.table
     %tbody
-      %tr>
+      %tr
         %td Total products
-        %td.price $216.51
+        %td.price {{currency}} {{product_total()}}
       %tr
         %td Shipping
         %td.price
-          %span.success
-            Free shipping!
+          %span.success Free shipping!
       %tr.cart-total-price
         %td Total (tax excl.)
-        %td.price $216.51
+        %td.price {{currency}} {{product_total()}}
       %tr
         %td Total tax
-        %td.price#total-tax $0.00
+        %td#total-tax.price {{currency}} {{tax()}}
       %tr
         %td Total
-        %td.site-color#total-price $216.51
+        %td.site-color#total-price {{currency}} {{total_cost()}}
