@@ -9,23 +9,15 @@ class ProductsController < ApplicationController
 
   def index
     category_id = params[:category_id]
-    if category_id.present? 
-      @products = filtered_products_for_category(category_id)
-      render :index and return
-    else
-      products = Product.all
-      render :json =>  products.collect { |p| generate_json_for(p) }
-    end
+    page_number = params[:page_number] || "0"
+    presenter = ProductsPresenter.new(category_id, page_number.to_i)
+    products = presenter.filtered_products
+    @root_category = presenter.category_root
+    products_json = products.collect { |p| generate_json_for(p) }
+    render :json => { next_page: next_page_path(category_id, presenter.next_product_list_page), products: products_json}
   end
 
   private
-
-  def filtered_products_for_category category_id
-    Product.all and return if category_id.nil?
-    @category = Category.where(:_id => category_id).first
-    @root_category = @category.root
-    @category.nil? ? Product.all : @category.all_products_in_hierarchy
-  end
 
   def generate_json_for product
     {
@@ -42,6 +34,11 @@ class ProductsController < ApplicationController
         :name => product.category.name
       }
     }
+  end
+
+  def next_page_path(category_id, page_number)
+    return "" if page_number == -1
+    category_id.present? ? category_products_page_path(category_id, page_number) : products_page_path(page_number)
   end
 
   def hash_for_images images

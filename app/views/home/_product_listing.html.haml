@@ -27,9 +27,9 @@
                 %span.add2cart
                   %i.glyphicon.glyphicon-shopping-cart
                 Add to cart
-      .row
+      .row{"ng-hide" => "isLastPage"}
         .load-more-block.text-center
-          %a.btn.btn-thin{:href => "#"}
+          %a.btn.btn-thin{"ng-click"=>"loadNextPage()"}
             %i.fa.fa-plus-sign +
             load more products
 

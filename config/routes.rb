@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :products
+  get 'products/page/:page_number' => "products#index", as: :products_page
+
   get 'cart' => 'cart#show'
   put 'cart/add' => 'cart#add'
   get 'cart/items' => 'cart#index'
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :products
+    get 'products/page/:page_number' => "products#index", as: :category_product_page
   end
 
   # Example resource route with options:
