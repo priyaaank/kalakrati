@@ -31,7 +31,6 @@
           .product
             %a.add-fav.tooltipHere{"data-toggle" => "tooltip", "data-original-title" => "Add to Wishlist", "data-placement" => "left"}
               %i.glyphicon.glyphicon-heart
-                
             .image
               %a{:href=> url_for(product) }
                 %img.img-responsive{:src=> asset_path(product.images.first.url), :alt=>"image"}
@@ -56,7 +55,6 @@
                     %i.glyphicon.glyphicon-shopping-cart
                     Add to cart
       <!--/.categoryProduct || product content end-->
-      
     .w100.categoryFooter
       .pagination.pull-left.no-margin-top
         %ul.pagination.no-margin-top

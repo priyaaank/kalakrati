@@ -1,0 +1,12 @@
+.container.main-container.headerOffset{"ng-controller"=>"CategoryController", "ng-init" => "triggerProductFetchForCategory('#{category_products_path(@category.id)}')"}
+  = render partial: "breadcrumb"
+
+  .row
+    <!--left column-->
+    .col-lg-3.col-md-3.col-sm-12
+      .panel-group#accordionNo
+        = render partial: "taxonomy_listing"
+        = render partial: "price_filter_panel"
+        = render partial: "discount_panel"
+
+    = render partial: "product_listing"

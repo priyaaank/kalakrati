@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     category_id = params[:category_id]
-    presenter = ProductsPresenter.new(category_id, 0)
+    presenter = ProductsPresenter.new(category_id, 0, 6)
     @category = presenter.category
     @products = presenter.filtered_products
     @root_category = presenter.category_root
