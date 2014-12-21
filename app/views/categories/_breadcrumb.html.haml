@@ -1,0 +1,11 @@
+.row
+  .breadcrumbDiv.col-lg-12
+    .breadcrumb
+      %li
+        %a{:href => root_path}Home
+      - @category.ancestors.reverse.each do |breadcrumb|
+        %li
+          %a{:href => "#{category_products_path(breadcrumb)}"} 
+            = "#{breadcrumb.name}"
+      %li.active
+        = @category.name

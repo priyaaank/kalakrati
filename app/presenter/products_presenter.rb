@@ -17,7 +17,11 @@ class ProductsPresenter
   end
 
   def category_root
-    @category_id.nil? ? nil : Category.where(_id: @category_id).first.root
+    @category_id.nil? ? nil : category.root
+  end
+
+  def category
+    Category.where(_id: @category_id).first
   end
 
   private

@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   get 'checkout/order/:id' => "checkout#show_order", as: :checkout_order
   # get 'checkout/confirm/:cart_id' => "checkout#confirm", as: :confirm_cart
 
-  resources :categories do
+  resources :category do
+    get ':name' => "categories#index", as: :listing
     resources :products
     get 'products/page/:page_number' => "products#index", as: :category_product_page
   end

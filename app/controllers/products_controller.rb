@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
     page_number = params[:page_number] || "0"
     presenter = ProductsPresenter.new(category_id, page_number.to_i)
     products = presenter.filtered_products
-    @root_category = presenter.category_root
     products_json = products.collect { |p| generate_json_for(p) }
     render :json => { next_page: next_page_path(category_id, presenter.next_product_list_page), products: products_json}
   end
