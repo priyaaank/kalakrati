@@ -5,7 +5,7 @@ angular.module('kalakrati.services').
         CategoryProductListingService.Products=[];
 
         CategoryProductListingService.FetchCategoryDetailsFor = function(productsUrl) {
-            return $http.get(productsUrl).success(function(data) {
+            return $http.get(productsUrl +'.json').success(function(data) {
                 CategoryProductListingService.CategoryDetails.data;
                 CategoryProductListingService.Products = data.products;
                 $rootScope.$broadcast('categoryProductDetails:updated');
