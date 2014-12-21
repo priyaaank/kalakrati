@@ -1,4 +1,4 @@
-kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProductListingService', function($scope, $http, CategoryProductListingService) {
+kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProductListingService', 'CartService', function($scope, $http, CategoryProductListingService, CartService) {
 
     $scope.products = CategoryProductListingService.Products;
     $scope.categoryDetails = CategoryProductListingService.CategoryDetails;
@@ -12,6 +12,10 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
 
     $scope.triggerProductFetchForCategory = function(url) {
         CategoryProductListingService.FetchCategoryDetailsFor(url);
+    };
+
+    $scope.addToCart = function(productId) {
+        CartService.AddItemToCart(productId, 1);
     };
 
 }]);
