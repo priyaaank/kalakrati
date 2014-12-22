@@ -1,5 +1,7 @@
 class ProductsPresenter
 
+  attr_accessor :records_per_page, :page
+
   def initialize(category_id = nil, page = 0, records_per_page = 4)
     @category_id = category_id
     @page = page
@@ -8,7 +10,15 @@ class ProductsPresenter
 
   def filtered_products
     offset = @page * @records_per_page
-    @category_id.present? ? products_filtered_by_category(offset, @records_per_page) : all_products_filtered(offset, @records_per_page)
+    @category_id.present? ? products_filtered_and_paginated(offset, @records_per_page) : all_products_filtered_and_paginated(offset, @records_per_page)
+  end
+
+  def total_products_count
+    @category_id.present? ? products_filtered_by_category.count : all_products_filtered_and_paginated.count
+  end
+
+  def total_pages
+    (total_products_count.to_f / @records_per_page).ceil
   end
 
   def next_product_list_page
@@ -26,16 +36,24 @@ class ProductsPresenter
 
   private
 
-  def products_filtered_by_category(offset, limit)
+  def products_filtered_and_paginated(offset, limit)
+    products_filtered_by_category.skip(offset).limit(limit)
+  end
+
+  def products_filtered_by_category
     category = Category.where(:_id => @category_id).first
     (all_products_filtered and return )if category.nil?
     categories = category.descendants.collect(&:id)
     categories << category.id
-    Product.in(category: categories).skip(offset).limit(limit)
+    Product.in(category: categories)
   end
 
-  def all_products_filtered(offset, limit)
-    Product.skip(offset).limit(limit)
+  def all_products_filtered_and_paginated
+    all_products_filtered.skip(offset).limit(limit)
+  end
+
+  def all_products_filtered
+    Product.all
   end
 
 end

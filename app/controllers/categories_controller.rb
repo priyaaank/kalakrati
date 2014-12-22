@@ -10,18 +10,25 @@ class CategoriesController < ApplicationController
     @root_category = presenter.category_root
     respond_to do |format|
       format.html { render :index and return if category_id.present? }
-      format.json { render json: json_response_from(@products, @category) }
+      format.json { render json: json_response_from(@products, @category, presenter) }
     end
   end
 
   private
 
-  def json_response_from products, category
+  def json_response_from products, category, presenter
     product_response = products.collect do |product|
       generate_json_for(product)
     end
 
-    { products: product_response }
+    {
+        products: product_response,
+        total_pages: presenter.total_pages,
+        current_page: presenter.page+1,
+        total_records: presenter.total_products_count,
+        records_per_page: presenter.records_per_page,
+        product_count: products.size
+    }
   end
 
   def generate_json_for product
