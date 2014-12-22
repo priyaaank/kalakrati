@@ -48,7 +48,7 @@ class ProductsPresenter
     Product.in(category: categories)
   end
 
-  def all_products_filtered_and_paginated
+  def all_products_filtered_and_paginated(offset, limit)
     all_products_filtered.skip(offset).limit(limit)
   end
 
