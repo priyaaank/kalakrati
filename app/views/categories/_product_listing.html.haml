@@ -59,8 +59,9 @@
         %ul.pagination.no-margin-top
           %li
             %a{"ng-click" =>"updateProductsForPage(1)"}«
-          %li{"ng-repeat" => " pageNum in totalPageCount()"}
-            %a{"ng-click" => "updateProductsForPage(pageNum)"} {{pageNum}}
+          %li{"ng-repeat" => " pageNum in totalPageCount()", "ng-class" => "isCurrentPage(pageNum) ? 'active' : ''"}
+            %a{"ng-if" => "isCurrentPage(pageNum)"} {{pageNum}}
+            %a{"ng-if" => "!isCurrentPage(pageNum)", "ng-click" => "updateProductsForPage(pageNum)"} {{pageNum}}
           %li
             %a{"ng-click" =>"updateProductsForPage(lastPageNumber)"}»
     

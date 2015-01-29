@@ -34,6 +34,10 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
         return pageNumbers;
     };
 
+    $scope.isCurrentPage = function(pageNumber) {
+      return CategoryProductListingService.CategoryDetails.current_page == pageNumber;
+    };
+
     var updateStartRecordCount = function() {
         $scope.startRecordCount = ($scope.categoryDetails.current_page * $scope.categoryDetails.records_per_page) - ($scope.categoryDetails.records_per_page - 1);
     };
