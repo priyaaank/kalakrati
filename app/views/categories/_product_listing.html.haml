@@ -58,13 +58,11 @@
       .pagination.pull-left.no-margin-top
         %ul.pagination.no-margin-top
           %li
-            %a{:href=>"#"}«
-          %li.active
-            %a{:href=>"#"}1
+            %a{"ng-click" =>"updateProductsForPage(1)"}«
+          %li{"ng-repeat" => " pageNum in totalPageCount()"}
+            %a{"ng-click" => "updateProductsForPage(pageNum)"} {{pageNum}}
           %li
-            %a{:href=>"#"}2
-          %li
-            %a{:href=>"#"}»
+            %a{"ng-click" =>"updateProductsForPage(lastPageNumber)"}»
     
       .pull-right.pull-right.col-sm-4.col-xs-12.no-padding.text-right.text-left-xs
         %p Showing {{startRecordCount}} - {{endRecordCount}} of {{categoryDetails.total_records}} results

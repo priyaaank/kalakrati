@@ -4,10 +4,12 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
     $scope.categoryDetails = CategoryProductListingService.CategoryDetails;
     $scope.startRecordCount = 0;
     $scope.endRecordCount = 0;
+    $scope.lastPageNumber = 1;
 
     var updateProductAndCategoryDetails = function() {
         $scope.products = CategoryProductListingService.Products;
         $scope.categoryDetails = CategoryProductListingService.CategoryDetails;
+        $scope.lastPageNumber = CategoryProductListingService.CategoryDetails.total_pages;
         updateStartRecordCount();
         updateEndRecordCount();
     };
@@ -16,6 +18,20 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
 
     $scope.triggerProductFetchForCategory = function(url) {
         CategoryProductListingService.FetchCategoryDetailsFor(url);
+    };
+
+    $scope.updateProductsForPage = function(pageNumber) {
+        CategoryProductListingService.Products = [];
+        console.log("triggered with page number"  + pageNumber);
+    };
+
+    $scope.totalPageCount = function() {
+        var pageNumbers = [];
+        for(var index = 1; index <= CategoryProductListingService.CategoryDetails.total_pages; index++) {
+            pageNumbers.push(index);
+        }
+        console.log(pageNumbers);
+        return pageNumbers;
     };
 
     var updateStartRecordCount = function() {
