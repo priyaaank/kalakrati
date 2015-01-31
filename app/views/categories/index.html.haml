@@ -1,4 +1,4 @@
-.container.main-container.headerOffset{"ng-controller"=>"CategoryController", "ng-init" => "triggerProductFetchForCategory('#{category_products_path(@category.id)}')"}
+.container.main-container.headerOffset{"ng-controller"=>"CategoryController", "ng-init" => "triggerProductFetchForCategory('#{category_category_product_page_path(@category.id, 0)}')"}
   = render partial: "breadcrumb"
 
   .row

@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
 
   def index
     category_id = params[:category_id]
-    presenter = ProductsPresenter.new(category_id, 0, 6)
+    page_number = params[:page_number] || 0
+    presenter = ProductsPresenter.new(category_id, page_number, 6)
     @category = presenter.category
     @products = presenter.filtered_products
     @root_category = presenter.category_root
@@ -27,7 +28,7 @@ class CategoriesController < ApplicationController
         current_page: presenter.page+1,
         total_records: presenter.total_products_count,
         records_per_page: presenter.records_per_page,
-        product_count: products.size
+        product_count: product_response.size
     }
   end
 

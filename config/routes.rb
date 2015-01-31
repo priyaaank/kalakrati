@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :category do
     get ':name' => "categories#index", as: :listing
     resources :products
-    get 'products/page/:page_number' => "products#index", as: :category_product_page
+    get 'products/page/:page_number' => "categories#index", as: :category_product_page
   end
 
   # Example resource route with options:
