@@ -3,9 +3,10 @@ angular.module('kalakrati.services').
 
         CategoryProductListingService.CategoryDetails={};
         CategoryProductListingService.Products=[];
+        CategoryProductListingService.CategoryProductsUrl = "";
 
-        CategoryProductListingService.FetchCategoryDetailsFor = function(productsUrl) {
-            return $http.get(productsUrl +'.json').success(function(data) {
+        CategoryProductListingService.FetchCategoryDetailsFor = function() {
+            return $http.get(CategoryProductListingService.CategoryProductsUrl +'.json').success(function(data) {
                 CategoryProductListingService.CategoryDetails = data;
                 CategoryProductListingService.Products = data.products;
                 $rootScope.$broadcast('categoryProductDetails:updated');

@@ -17,12 +17,13 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
     $scope.$on('categoryProductDetails:updated', updateProductAndCategoryDetails);
 
     $scope.triggerProductFetchForCategory = function(url) {
-        CategoryProductListingService.FetchCategoryDetailsFor(url);
+        CategoryProductListingService.CategoryProductsUrl = url;
+        CategoryProductListingService.FetchCategoryDetailsFor();
     };
 
     $scope.updateProductsForPage = function(pageNumber) {
-        CategoryProductListingService.Products = [];
-        console.log("triggered with page number"  + pageNumber);
+        CategoryProductListingService.CategoryProductsUrl = CategoryProductListingService.CategoryProductsUrl.replace(/\d+.json/, pageNumber+".json");
+        CategoryProductListingService.FetchCategoryDetailsFor();
     };
 
     $scope.totalPageCount = function() {
@@ -30,7 +31,6 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
         for(var index = 1; index <= CategoryProductListingService.CategoryDetails.total_pages; index++) {
             pageNumbers.push(index);
         }
-        console.log(pageNumbers);
         return pageNumbers;
     };
 
