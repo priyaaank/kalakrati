@@ -11,28 +11,15 @@
           %li.no-border
             %p.promo-1
               %strong COLLECTIONS
-          - @root_categories.each do |category|
+          - @root_categories[0..-4].each do |category|
             %li
               %a{:href=>category_listing_path(category.id, category.name)} #{category.name}
 
-        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
-          %li
-            %a.newProductMenuBlock{:href => "product-details.html"}
-              %img.img-responsive{:src => "#{asset_path('site/promo1.jpg')}", :alt=>"product"}
-                %span.ProductMenuCaption
-                  %i.fa.fa-caret-right
-                  PAPER
-        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
-          %li
-            %a.newProductMenuBlock{:href => "product-details.html"}
-              %img.img-responsive{:src => "#{asset_path('site/promo2.jpg')}", :alt=>"product"}
-                %span.ProductMenuCaption
-                  %i.fa.fa-caret-right 
-                  GLASS
-        %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
-          %li
-            %a.newProductMenuBlock{:href => "product-details.html"}
-              %img.img-responsive{:src => "#{asset_path('site/promo3.jpg')}", :alt=>"product"}
-                %span.ProductMenuCaption
-                  %i.fa.fa-caret-right 
-                  CERAMICS
+        - @root_categories[-3..-1].each do |category|
+          %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
+            %li
+              %a.newProductMenuBlock{:href => "#{category_listing_path(category.id, category.name)}"}
+                %img.img-responsive{:src => "#{asset_path("#{category.image_url}")}", :alt=>"#{category.name}"}
+                  %span.ProductMenuCaption
+                    %i.fa.fa-caret-right
+                    = category.name.upcase

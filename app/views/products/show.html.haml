@@ -10,8 +10,8 @@
       .productFilter
         .filterBox
           %select{:style => "display: none;", "ng-model" => "selectedQuantity", "ng-options" => "quantity.key for quantity in quantities"}
-      
-        
+
+
         = render :partial => "cart_actions"
         
         .clear

@@ -38,7 +38,7 @@ angular.module('kalakrati.services').
     CartService.AddItemToCart = function(itemId, quantity) {
       var data = {
         "productId" : itemId,
-        "quantity"  : 1
+        "quantity"  : quantity
       };
 
       return $http.put('/cart/add', data).

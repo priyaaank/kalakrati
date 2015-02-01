@@ -15,8 +15,10 @@
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
           <h3> Shop </h3>
           <ul>
-            <li> <a href="index.html"> Home </a> </li>
-            <li> <a href="category.html"> Collections </a> </li>
+            <li> <a href="<%= root_path %>"> Home </a> </li>
+            <% @root_categories.each do |category| %>
+                <li> <a href="<%= category_listing_path(category.id, category.name) %>"> <%= category.name %> </a> </li>
+            <% end %>
           </ul>
         </div>
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
@@ -42,10 +44,11 @@
           </ul>
           <ul class="social">
             <li class="text-ce"> <a href="https://www.facebook.com/Kalakrati"> <i class=" fa fa-facebook"> &nbsp; </i> </a> </li>
-            <li> <a href=""> <i class="fa fa-twitter"> &nbsp; </i> </a> </li>
-            <li> <a href=""> <i class="fa fa-google-plus"> &nbsp; </i> </a> </li>
-            <li> <a href=""> <i class="fa fa-pinterest"> &nbsp; </i> </a> </li>
-            <li> <a href=""> <i class="fa fa-youtube"> &nbsp; </i> </a> </li>
+            <li> <a href="mailto:kalakrati@outlook.com"> <i class="fa fa-envelope-o"> &nbsp; </i> </a> </li>
+            <!--<li> <a href=""> <i class="fa fa-twitter"> &nbsp; </i> </a> </li>-->
+            <!--<li> <a href=""> <i class="fa fa-google-plus"> &nbsp; </i> </a> </li>-->
+            <!--<li> <a href=""> <i class="fa fa-pinterest"> &nbsp; </i> </a> </li>-->
+            <!--<li> <a href=""> <i class="fa fa-youtube"> &nbsp; </i> </a> </li>-->
           </ul>
         </div>
       </div>

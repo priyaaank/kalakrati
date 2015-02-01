@@ -15,10 +15,10 @@
         .change-order.pull-right
           %select.form-control{:name => "orderby", :style=>"display: none;"}
             %option{:selected=>"selected"}Default sorting
-            %option{:value=>"price"}Sort by price: low to high
-            %option{:value=>"price-desc"}Sort by price: high to low
-            %option{:value=>"popularity"}Sort by popularity
-            %option{:value=>"newness"}Sort by newness
+            -#%option{:value=>"price"}Sort by price: low to high
+            -#%option{:value=>"price-desc"}Sort by price: high to low
+            -#%option{:value=>"popularity"}Sort by popularity
+            -#%option{:value=>"newness"}Sort by newness
         .change-view.pull-right
           %a.grid-view{:href=>"#", :title=>"Grid"}
             %i.fa.fa-th-large
