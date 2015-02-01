@@ -16,4 +16,8 @@ class Order
     new_order
   end
 
+  def total_order_amount
+    order_items.sum(&:total_cost)
+  end
+
 end

@@ -22,4 +22,8 @@ class OrderItem
     order_item
   end
 
+  def total_cost
+    quantity * price.amount
+  end
+
 end

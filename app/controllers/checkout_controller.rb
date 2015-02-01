@@ -39,6 +39,7 @@ class CheckoutController < ApplicationController
     guest_shopping_cart.update_payment(JSON.parse(payment_details))
     order = guest_shopping_cart.generate_order
     response = { orderUrl: checkout_order_path_from(request, order) }
+    NewOrderMailer.new_order_email(order).deliver
     render json: response, status: 200
   end
 
