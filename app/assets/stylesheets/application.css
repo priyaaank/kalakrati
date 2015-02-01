@@ -16,6 +16,7 @@
  *= require ion.checkRadio 
  *= require ion.checkRadio.cloudy
  *= require jquery.mCustomScrollbar.css
+ *= stub email
  *= require_self
  *= require_tree .
  */
