@@ -7,13 +7,13 @@
 
         .item.col-lg-3.col-md-3.col-sm-4.col-xs-6{"ng-repeat" => "product in featured_products"}
           .product
-            %a.add-fav.tooltipHere{"data-toggle"=>"tooltip", "data-original-title"=>"Add to Wishlist", "data-placement"=>"left" }
-              %i.glyphicon.glyphicon-heart
+            -#%a.add-fav.tooltipHere{"data-toggle"=>"tooltip", "data-original-title"=>"Add to Wishlist", "data-placement"=>"left" }
+            -#  %i.glyphicon.glyphicon-heart
             .image
               %a{:href=>"{{product.details_url}}"}
                 %img.img-responsive{"ng-src" => "{{product.images[0].img_url}}", :alt=>"img"}
               .promotion
-                %span.discount 15% OFF
+                %span.new-product New
             .description
               %h4 
                 %a{:href=>"{{product.details_url}}"}

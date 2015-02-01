@@ -28,8 +28,8 @@
     .row.categoryProduct.xsResponse.clearfix
       .item.col-sm-4.col-lg-4.col-md-4.col-xs-6{"ng-repeat" => "product in products"}
         .product
-          %a.add-fav.tooltipHere{"data-toggle" => "tooltip", "data-original-title" => "Add to Wishlist", "data-placement" => "left"}
-            %i.glyphicon.glyphicon-heart
+          -#%a.add-fav.tooltipHere{"data-toggle" => "tooltip", "data-original-title" => "Add to Wishlist", "data-placement" => "left"}
+          -#  %i.glyphicon.glyphicon-heart
           .image
             %a{:href=>"{{product.details_url}}" }
               %img.img-responsive{"ng-src" => "{{product.images[0].img_url}}", :alt=>"img"}

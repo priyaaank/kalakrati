@@ -7,6 +7,7 @@ class Category
   field :description, type: String
   field :image_url, type: String
   field :image_source, type: String
+  field :menu_image, type: String
 
   has_many :products
 
