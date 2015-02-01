@@ -19,6 +19,7 @@
                 %td
                   %h3
                     Hi Yojana,
+                    %br
                     %strong
                       = "New Order #{@order.id}"
                   %p.lead
@@ -34,7 +35,7 @@
                       Order summary:
                     %br
                     - @order.order_items.each do |item|
-                      = "#{item.product.name}  - [ #{item.quantity} x #{item.price.amount} ] - #{item.total_cost}  "
+                      = "#{item.product.name}  - [ #{item.quantity} x ₹#{item.price.amount} ] = #{item.total_cost}  "
 
                     %br
                     %br
@@ -65,13 +66,19 @@
                   %p
 
                     %strong
-                      Notes from customer
-                    = "#{@order.address.additional_info}"
+                      Address Notes from customer
+                    = "#{@order.address.additional_notes}"
+
+                    %br
+
+                    %strong
+                      Payment Notes from customer
+                    = "#{@order.payment_notes}"
 
                   %br
                   %br
 
                   %p
-                    "- With love"
+                    = "- With love"
                     %br
                     Kalakrati automated mail generator
