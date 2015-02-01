@@ -9,19 +9,6 @@
 
   %body{:bgcolor=>"#FFFFFF"}
 
-    %table.head-wrap{:bgcolor=>"#999999"}
-      %tr
-        %td
-        %td.header.container
-          .content
-            %table{:bgcolor=>"#999999"}
-              %tr
-                %td
-                %td{:align=>"right"}
-                  %h6.collapse
-                    = "New Order #{@order.id}"
-        %td
-
     %table.body-wrap
       %tr
         %td
@@ -32,6 +19,8 @@
                 %td
                   %h3
                     Hi Yojana,
+                    %strong
+                      = "New Order #{@order.id}"
                   %p.lead
                     = "New order was placed today on Kalakrati. Total amount for the order is ₹#{@order.total_order_amount}. Please find the details below."
 
@@ -41,15 +30,22 @@
                       here
 
                   %h3
-                    Order summary:
+                    %strong
+                      Order summary:
                     %br
                     - @order.order_items.each do |item|
                       = "#{item.product.name}  - [ #{item.quantity} x #{item.price.amount} ] - #{item.total_cost}  "
 
+                    %br
+                    %br
+
                     %strong
                       = "Total Cost : #{@order.total_order_amount}"
+                    %br
+                    %br
                   %p
-                    Shipping details:
+                    %strong
+                      Shipping details:
                     %br
                     = "#{@order.address.address_line1}"
                     %br
@@ -63,7 +59,8 @@
                     %br
                     = "#{@order.address.zipcode}"
                     %br
-                    = "#{@order.address.mobile}"
+                      %strong
+                      = "#{@order.address.mobile}"
 
                   %p
 
@@ -73,3 +70,8 @@
 
                   %br
                   %br
+
+                  %p
+                    "- With love"
+                    %br
+                    Kalakrati automated mail generator
