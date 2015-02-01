@@ -37,16 +37,16 @@
 
                   %p.callout
                     You can see the order details
-                    %a{:href => "#{checkout_order_path(@order)}"}}
+                    %a{:href => "#{checkout_order_url(@order)}"}
                       here
 
                   %h3
                     Order summary:
                     - @order.order_items.each do |item|
-                      = "#{item.name}  - [ #{item.quantity} x #{item.price.amount} ] - #{item.total_cost}  "
+                      = "#{item.product.name}  - [ #{item.quantity} x #{item.price.amount} ] - #{item.total_cost}  "
 
                     %strong
-                      = "Total Cost : #{@order.total_order_cost}"
+                      = "Total Cost : #{@order.total_order_amount}"
                   %p
                     Shipping details:
                     = "#{@order.address.address_line1}"
