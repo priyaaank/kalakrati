@@ -42,6 +42,7 @@
 
                   %h3
                     Order summary:
+                    %br
                     - @order.order_items.each do |item|
                       = "#{item.product.name}  - [ #{item.quantity} x #{item.price.amount} ] - #{item.total_cost}  "
 
@@ -49,12 +50,19 @@
                       = "Total Cost : #{@order.total_order_amount}"
                   %p
                     Shipping details:
+                    %br
                     = "#{@order.address.address_line1}"
+                    %br
                     = "#{@order.address.address_line2}"
+                    %br
                     = "#{@order.address.city}"
+                    %br
                     = "#{@order.address.state}"
+                    %br
                     = "#{@order.address.country}"
+                    %br
                     = "#{@order.address.zipcode}"
+                    %br
                     = "#{@order.address.mobile}"
 
                   %p
