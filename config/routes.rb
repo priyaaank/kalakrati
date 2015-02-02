@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'information/contactus' => 'information#contact'
   get 'information/about' => 'information#about'
   get 'information/conditions' => 'information#tnc'
+  get 'information/privacy' => 'information#privacy'
 
   get 'checkout/address' => "checkout#address"
   post 'checkout/address' => "checkout#create_address"

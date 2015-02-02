@@ -14,4 +14,8 @@ class InformationController < ApplicationController
     render :tnc
   end
 
+  def privacy
+    render :privacy
+  end
+
 end
