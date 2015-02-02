@@ -19,7 +19,7 @@
           %ul.col-lg-3.col-sm-3.col-md-3.col-xs-4
             %li
               %a.newProductMenuBlock{:href => "#{category_listing_path(category.id, category.name)}"}
-                %img.img-responsive{:src => "#{asset_path("#{category.image_url}")}", :alt=>"#{category.name}"}
+                %img.img-responsive{:src => "#{asset_path("#{category.menu_image}")}", :alt=>"#{category.name}"}
                   %span.ProductMenuCaption
                     %i.fa.fa-caret-right
                     = category.name.upcase

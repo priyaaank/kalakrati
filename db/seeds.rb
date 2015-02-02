@@ -2,11 +2,11 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 ## Product Taxonomies
-glass = Category.create!(name: "Glass", description: "Glass products", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
-canvas = Category.create!(name: "Canvas", description: "Canvas products", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
-jute = Category.create!(name: "Jute", description: "Jute products", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
-pottery = Category.create!(name: "Pottery", description: "Pottery products", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
-paper = Category.create!(name: "Paper", description: "Paper products", image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
+glass = Category.create!(name: "Glass", description: "Glass products", menu_image: "site/glass.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
+canvas = Category.create!(name: "Canvas", description: "Canvas products", menu_image: "site/canvas.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
+jute = Category.create!(name: "Jute", description: "Jute products", menu_image: "site/jute.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
+pottery = Category.create!(name: "Pottery", description: "Pottery products", menu_image: "site/pottery.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
+paper = Category.create!(name: "Paper", description: "Paper products",menu_image: "site/paper.png", image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
 
 #glass subtaxonomy
 glass_bottles = Category.create!(name: "Bottles n Flasks", description: "Glass bottles and flasks", parent: glass)
