@@ -25,4 +25,8 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
     CartService.DeleteCartItem(itemId);
   }
 
+  $scope.shouldAllowCheckout = function() {
+      return CartService.ProductTotal() > 0;
+  }
+
 }]);

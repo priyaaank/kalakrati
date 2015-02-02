@@ -2,7 +2,7 @@
   .contentBox
     .w100.costDetails
       .table-block#order-detail-content
-        %a.btn.btn-success.btn-lg.btn-block{:title=>"checkout", :href=>"#{checkout_address_path}", :style=>"margin-bottom:20px"} 
+        %a.btn.btn-success.btn-lg.btn-block{"ng-class" => " shouldAllowCheckout() ? '' : 'disabled' ", :title=>"checkout", :href=>"#{checkout_address_path}", :style=>"margin-bottom:20px"}
           Proceed to checkout &nbsp; 
           %i.fa.fa-arrow-right
         .w100.cartMiniTable
