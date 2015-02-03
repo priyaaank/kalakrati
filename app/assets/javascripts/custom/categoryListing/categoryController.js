@@ -48,6 +48,7 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
 
     $scope.addToCart = function(productId) {
         CartService.AddItemToCart(productId, 1);
+        toastr['success']("Shopping cart updated!");
     };
 
 }]);

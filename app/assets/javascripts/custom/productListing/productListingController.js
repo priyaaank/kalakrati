@@ -8,6 +8,7 @@ kalakratiApp.controller('ProductListingController', ['$scope', '$http', 'CartSer
 
       $scope.addToCart = function(productId) {
         CartService.AddItemToCart(productId, 1);
+        toastr['success']("Shopping cart updated!");
       };
 
       $scope.loadNextPage = function() {

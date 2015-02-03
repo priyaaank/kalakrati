@@ -7,8 +7,8 @@ kalakratiApp.controller('ProductDetailsController', ['$scope', '$http', 'CartSer
     $scope.selectedQuantity = $scope.quantities[0];
 
     $scope.AddToCart = function(itemId) {
-      console.log($scope.userSelectedQuantityValue());
       CartService.AddItemToCart(itemId, $scope.userSelectedQuantityValue());
+      toastr['success']("Shopping cart updated!");
     }
 
     $scope.userSelectedQuantityValue = function() {
