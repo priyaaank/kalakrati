@@ -1,7 +1,7 @@
-.dropdown.cartMenu{"ng-controller" => "CartController"}
+.dropdown.cartMenu
   %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
     %i.fa.fa-shopping-cart
-      %span.cartRespons Cart ({{currency}} {{product_total()}})
+      %span.cartResponse Cart ({{currency}} {{product_total()}})
     %b.caret
   .dropdown-menu.col-lg-4.col-xs-12.col-md-4
     .w100.miniCartTable.scroll-pane

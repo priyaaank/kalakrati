@@ -1,0 +1,31 @@
+.navbar-cart.collapse
+  .cartMenu.col-lg-4.col-xs-12.col-md-4
+    .w100.miniCartTable.scroll-pane
+      %table
+        %tbody
+          %tr.miniCartProduct{"ng-repeat" => "cart_item in cart_items"}
+            %td.miniCartProductThumb{:style=>"20%"}
+              %div
+                %a{:href=>"{{cart_item.details_url}}"}
+                  %img{"ng-src"=>"{{cart_item.thumbnail_url}}", :alt=>"img"}
+            %td{:style=>"40%"}
+              .miniCartDescription
+                %h4
+                  %a{:href=>"{{cart_item.details_url}}"} {{cart_item.name}}
+                .price
+                  %span {{cart_item.price.currency}} {{cart_item.price.amount}}
+            %td.miniCartQuantity{:style=>"10%"}
+              %a X {{cart_item.quantity}}
+            %td.miniCartSubtotal{:style=>"15%"}
+              %span {{cart_item.price.currency}} {{cart_item.quantity * cart_item.price.amount}}
+            %td.delete{:style=>"5%"}
+              %a{"ng-click"=>"deleteCartItem(cart_item.id)"}
+                %i.glyphicon.glyphicon-trash.fa-x
+
+    .miniCartFooter.miniCartFooterInMobile.text-right
+      %h3.text-right.subtotal
+        Subtotal: {{currency}} {{product_total()}}
+      %a.btn.btn-sm.btn-danger{:href=>"#{cart_url}"}
+        %i.fa.fa-shopping-cart
+        VIEW CART
+      %a.btn.btn-sm.btn-primary{:href => "#{checkout_address_path}"} CHECKOUT

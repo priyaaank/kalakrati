@@ -25,11 +25,11 @@
   </div>
   <!--/.navbar-top-->
   
-  <div class="container">
+  <div class="container" ng-controller="CartController">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
-      <a class="navbar-brand " href="<%= root_path %>"> <img src="<%= asset_path('logo.png') %>" alt="TSHOP"> </a> 
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ({{currency}} {{product_total()}}) </span> </button>
+      <a class="navbar-brand " href="<%= root_path %>"> <img src="<%= asset_path('logo.png') %>" alt="Kalakrati"> </a>
       
       <!-- this part for mobile -->
       <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
