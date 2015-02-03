@@ -24,11 +24,11 @@ kalakratiApp.controller('CheckoutController', ['$scope', '$location', '$window',
     };
 
     CheckoutService.FetchAddressDetails().then(function() {
-    $scope.address = CheckoutService.Address;
+        $scope.address = CheckoutService.Address;
     });
 
     CheckoutService.FetchPaymentDetails().then(function() {
-    $scope.paymentDetails = CheckoutService.PaymentDetails;
+        $scope.paymentDetails = CheckoutService.PaymentDetails;
     });
 
     $scope.product_total = CartService.ProductTotal;

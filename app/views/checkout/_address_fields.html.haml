@@ -48,10 +48,8 @@
         %label{:for=>"InputState"}
           State 
           %sup*
-        %select.form-control#InputState{:required=>"", "aria-required"=>"true", :name=>"InputState"}
-          %option{:value=>""}Choose
-          %option{:value=>"1"}Alabama
-          %option{:value=>"2"}Whatever
+        %input.form-control#state{:name=>"state", "ng-model" => "address.state", "ng-required" => "true", :type=>"text", :placeholder=>"State"}
+        %p{"ng-show" => "addressDetails.state.$error.required && !addressDetails.state.$pristine"} State is required
     .col-xs-12.col-sm-6
       .form-group.required
         %label{:for=>"zipcode"}
@@ -65,14 +63,13 @@
         %label{:for=>"InputCountry"}
           Country 
           %sup*
-        %select.form-control#InputCountry{:required=>"", "aria-required"=>"true", :name=>"InputCountry"}
-          %option{:value=>""}Choose
-          %option{:value=>"1"}India
-          %option{:value=>"2"}United States
+        %input.form-control#country{:name=> "country", "ng-model" => "address.country", "ng-required" =>"true", :type=>"text", :placeholder=>"Country"}
+        %p{"ng-show" => "addressDetails.country.$error.required && !addressDetails.country.$pristine"} Country is required
+
       .form-group
-        %label{:for=>"InputAdditionalInformation"}
+        %label{:for=>"additionalInfo"}
           Additional information
-        %textarea.form-control#InputAdditionalInformation{:rows=>"3", :cols=>"26", :name=>"InputAdditionalInformation"}
+        %textarea.form-control#additionalInfo{:rows=>"3", :cols=>"26", :name=>"additionalInfo", "ng-model" => "address.additional_info", "ng-required" =>"false", :type=>"text"}
       .form-group.required
         %label{:for=>"mobile"}
           Mobile phone
