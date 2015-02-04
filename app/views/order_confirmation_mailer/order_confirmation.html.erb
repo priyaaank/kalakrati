@@ -194,13 +194,13 @@
             <h3 style="color:#666;display:block;font-family:Helvetica, Arial;font-size:16px;font-style:normal;font-weight:normal;line-height:110%;letter-spacing:normal;margin:0;margin-bottom:9px;text-align:left">Shipping
               Address:</h3>
 
-            <p style="margin:0;padding-bottom:1em"><%= "#{order.address.first_name} #{order.address.last_name}" %><br/>
-              <%= order.address_line1 %><br/>
-              <% if order.address_line2.present? %>
-                <%= order.address_line2 %><br/>
+            <p style="margin:0;padding-bottom:1em"><%= "#{@order.address.first_name} #{@order.address.last_name}" %><br/>
+              <%= @order.address.address_line1 %><br/>
+              <% if @order.address.address_line2.present? %>
+                <%= @order.address.address_line2 %><br/>
               <% end %>
-              <%= "#{order.address.city }, #{ order.address.state } #{ order.address.zipcode } #{order.address.zipcode} "%><br/>
-              <%= order.address.country %></p>
+              <%= "#{@order.address.city }, #{ @order.address.state } #{ @order.address.zipcode } #{@order.address.zipcode} "%><br/>
+              <%= @order.address.country %></p>
           </td>
         </tr>
         </tbody>
@@ -232,7 +232,7 @@
   <tr>
     <td class="kmTableBlockInner" valign="top" style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;padding-top:0px;padding-bottom:9px;padding-left:18px;padding-right:18px;">
 
-      <% if order.order_items.present? %>
+      <% if @order.order_items.present? %>
 
       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" width="100%" style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;">
         <thead>
@@ -246,7 +246,7 @@
         <tbody>
 
 
-        <% order.order_items.each do |item| %>
+        <% @order.order_items.each do |item| %>
 
 
         <tr class="kmTableRow">
@@ -287,10 +287,10 @@
         <tr>
           <td class="kmTextContent" valign="top" style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;color:#505050;font-family:Helvetica, Arial;font-size:14px;line-height:150%;text-align:left;padding-top:9px;padding-bottom:0px;padding-right:18px;text-align:right;padding-left:18px;">
             <p style="margin:0;padding-bottom:0">
-              <strong>Subtotal:</strong> ₹ <%= order.total_order_amount %> <br/>
+              <strong>Subtotal:</strong> ₹ <%= @order.total_order_amount %> <br/>
               <strong>Tax:</strong> ₹ 0.0<br/>
               <strong>Shipping:</strong> ₹ 0.0<br/>
-              <strong>Total:</strong> ₹ <%= order.order_total_amount %></p>
+              <strong>Total:</strong> ₹ <%= @order.total_order_amount %></p>
           </td>
         </tr>
         </tbody>

@@ -40,6 +40,7 @@ class CheckoutController < ApplicationController
     order = guest_shopping_cart.generate_order
     response = { orderUrl: checkout_order_path_from(request, order) }
     NewOrderMailer.new_order_email(order).deliver
+    OrderConfirmationMailer.order_confirmation_email(order).deliver
     render json: response, status: 200
   end
 
