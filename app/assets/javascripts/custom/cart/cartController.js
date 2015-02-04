@@ -1,6 +1,7 @@
 kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', function($scope, $http, CartService) {
 
   $scope.cart_items = CartService.CartItems;
+  $scope.openMenu = false;
 
   toastr.options = {
     "closeButton": false,
@@ -49,5 +50,13 @@ kalakratiApp.controller('CartController', ['$scope','$http', 'CartService', func
   $scope.shouldAllowCheckout = function() {
       return CartService.ProductTotal() > 0;
   }
+
+  $scope.toggleMenuOpen = function() {
+    if($(window).width() < 770) {
+        $scope.openMenu = !$scope.openMenu;
+    } else {
+        $scope.openMenu = false;
+    }
+  };
 
 }]);
