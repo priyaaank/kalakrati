@@ -14,4 +14,5 @@
 //= require ../../../lib/assets/bower_components/angular/angular
 //= require ../../../lib/assets/bower_components/angular-route/angular-route
 //= require ./custom/kalakrati.app
+//= require smoothproducts
 //= require_tree .

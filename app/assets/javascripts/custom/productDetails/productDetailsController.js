@@ -1,4 +1,7 @@
 kalakratiApp.controller('ProductDetailsController', ['$scope', '$http', 'CartService', function($scope, $http, CartService) {
+
+    $('.sp-wrap').smoothproducts();
+
     var quantities = [{'value':"",'key':"Quantity"}];
     for(i=1; i<21; i++) {
       quantities.push({'value':i,'key':i});
