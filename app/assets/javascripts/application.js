@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree ./jquery
+//= require_directory ./jquery/2.1.3/
 //= require ../../../lib/assets/bower_components/angular/angular
 //= require ../../../lib/assets/bower_components/angular-route/angular-route
 //= require ./custom/kalakrati.app
 //= require smoothproducts
-//= require_tree .
-//= stub ./admin/application
+//= require_directory ./ion-checkRadio
+//= require_directory ./helper-plugins
+//= require_tree ./custom
+//= require_directory .
