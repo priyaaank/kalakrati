@@ -1,0 +1,34 @@
+.row
+  .col-lg-4.col-md-6
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-xs-3
+            %i.fa.fa-inbox.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = @order_count
+            %div
+              Total Orders
+  .col-lg-4.col-md-6
+    .panel.panel-green
+      .panel-heading
+        .row
+          .col-xs-3
+            %i.fa.fa-barcode.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = @product_count
+            %div
+              Total Products
+  .col-lg-4.col-md-6
+    .panel.panel-yellow
+      .panel-heading
+        .row
+          .col-xs-3
+            %i.fa.fa-shopping-cart.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = @shopping_cart_count
+            %div
+              Pending Carts
