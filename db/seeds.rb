@@ -5,7 +5,7 @@
 glass = Category.create!(name: "Glass", description: "Glass products", menu_image: "site/glass.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
 canvas = Category.create!(name: "Canvas", description: "Canvas products", menu_image: "site/canvas.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
 jute = Category.create!(name: "Jute", description: "Jute products", menu_image: "site/jute.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
-pottery = Category.create!(name: "Pottery", description: "Pottery products", menu_image: "site/pottery.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
+ceramic = Category.create!(name: "Ceramic", description: "Ceramic products", menu_image: "site/ceramic.png", image_url: "category/glass_category.png", image_source: "https://www.flickr.com/photos/15609463@N03/12489622214")
 paper = Category.create!(name: "Paper", description: "Paper products",menu_image: "site/paper.png", image_url: "category/paper_category.png", image_source: "https://www.flickr.com/photos/sheila_sund/8371975708")
 
 #glass subtaxonomy
@@ -24,9 +24,9 @@ canvas_paintings = Category.create!(name: "Paintings", description: "Canvas pain
 jute_bags = Category.create!(name: "Bags", description: "Jute bags", parent: jute)
 jute_accessories = Category.create!(name: "Accessories", description: "Jute accessories", parent: jute)
 
-#pottery subtaxonomy
-pottery_diya = Category.create!(name: "Diya", description: "Pottery diyas", parent: pottery)
-pottery_pots = Category.create!(name: "Pots", description: "Pottery pots", parent: pottery)
+#ceramic subtaxonomy
+ceramic_diya = Category.create!(name: "Diya", description: "Ceramic diyas", parent: ceramic)
+ceramic_pots = Category.create!(name: "Pots", description: "Ceramic pots", parent: ceramic)
 
 
 
