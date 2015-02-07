@@ -10,6 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_directory ../jquery
+//= require_directory ../jquery/2.1.3/
 //= require ../bootstrap.min
 //= require_directory .
