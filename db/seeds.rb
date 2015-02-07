@@ -1,3 +1,10 @@
+Product.delete_all
+Category.delete_all
+ShoppingCart.delete_all
+ShoppingCartItem.delete_all
+Order.delete_all
+OrderItem.delete_all
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
@@ -12,9 +19,9 @@ paper = Category.create!(name: "Paper", description: "Paper products",menu_image
 glass_bottles = Category.create!(name: "Bottles n Flasks", description: "Glass bottles and flasks", parent: glass)
 glass_paintings = Category.create!(name: "Paintings", description: "Glass paintings", parent: glass)
 
-#glass subtaxonomy
-paper_quilling = Category.create!(name: "Quilling", description: "Paper quilling products", parent: paper)
-paper_crafts = Category.create!(name: "Crafts", description: "Paper craft products", parent: paper)
+#paper subtaxonomy
+paper_quilling = Category.create!(name: "Quilled", description: "Quilled products", parent: paper)
+paper_crafts = Category.create!(name: "Crafted", description: "Crafted products", parent: paper)
 
 #canvas subtaxonomy
 canvas_accessories = Category.create!(name: "Accessories", description: "Canvas accessories", parent: canvas)
@@ -28,7 +35,30 @@ jute_accessories = Category.create!(name: "Accessories", description: "Jute acce
 ceramic_diya = Category.create!(name: "Diya", description: "Ceramic diyas", parent: ceramic)
 ceramic_pots = Category.create!(name: "Pots", description: "Ceramic pots", parent: ceramic)
 
+## Canvas Products
+brushless_painting_price = Price.new
+brushless_painting_price.amount = 900
+brushless_painting = Product.new(name: "Brushless painting", description: "Green nature on a canvas without the brush.", code: "canvaspainting01", price: brushless_painting_price, category: canvas_paintings)
+brushless_painting.images << Image.new(url: "product/canvas/paintings/brushless_painting_nature.jpg", primary: true)
+brushless_painting.save!
 
+rangoli_painting_price = Price.new
+rangoli_painting_price.amount = 900
+rangoli_painting = Product.new(name: "Rangoli painting", description: "Readymade rangoli painting", code: "canvaspainting02", price: rangoli_painting_price, category: canvas_paintings)
+rangoli_painting.images << Image.new(url: "product/canvas/paintings/rangoli_painting.jpg", primary: true)
+rangoli_painting.save!
+
+glass_look_painting_price = Price.new
+glass_look_painting_price.amount = 900
+glass_look_painting = Product.new(name: "Glass look painting", description: "A painting made on canvas that looks like glass.", code: "canvaspainting03", price: glass_look_painting_price, category: canvas_paintings)
+glass_look_painting.images << Image.new(url: "product/canvas/paintings/glass_painting.jpg", primary: true)
+glass_look_painting.save!
+
+canvas_photo_frame_painting_price = Price.new
+canvas_photo_frame_painting_price.amount = 1000
+canvas_photo_frame_painting = Product.new(name: "Canvas photo frame", description: "A photo frame on canvas.", code: "canvaspainting04", price: canvas_photo_frame_painting_price, category: canvas_paintings)
+canvas_photo_frame_painting.images << Image.new(url: "product/canvas/paintings/canvas_photo_frame.jpg", primary: true)
+canvas_photo_frame_painting.save!
 
 ## Glass Products
 rose_bottle_price = Price.new

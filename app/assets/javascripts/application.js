@@ -16,4 +16,3 @@
 //= require ./custom/kalakrati.app
 //= require smoothproducts
 //= require_tree .
-//= stub ./admin/application
