@@ -13,6 +13,6 @@
 //= require_directory ./jquery/2.1.3/
 //= require ../../../lib/assets/bower_components/angular/angular
 //= require ../../../lib/assets/bower_components/angular-route/angular-route
-//= require ./custom/kalakrati.app
+//= require_tree ./custom/
 //= require smoothproducts
 //= require_directory .
