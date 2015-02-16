@@ -1,0 +1,50 @@
+<%= render partial: "admin/shared/page_header", locals: {page_title: "#{@product.name}"} %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Edit <%= @product.name %>
+      </div>
+
+      <div class="panel-body">
+        <div class="col-lg-12">
+
+          <div class="form-group">
+            <label>Product name</label>
+            <input class="form-control" placeholder="Product name" value="<%= @product.name %>">
+          </div>
+
+          <div class="form-group">
+            <label>Product description</label>
+            <textarea class="form-control" rows="3"><%= @product.description %></textarea>
+          </div>
+
+          <label>Product price</label>
+          <div class="form-group input-group">
+            <span class="input-group-addon">₹</span>
+            <input type="text" class="form-control" value="<%= @product.price.amount %>">
+          </div>
+
+          <div class="form-group">
+            <label>Product code</label>
+            <input class="form-control" placeholder="Product code" value="<%= @product.code %>">
+          </div>
+
+          <div class="form-group">
+            <label>Product category</label>
+            <select id="category_select" class="form-control">
+              <% Category.all.select(&:is_root?).each do |category| %>
+                <optgroup label="<%= category.name %>">
+                  <% category.descendants.each do |child_cat| %>
+                    <option value="<%= child_cat.name %>" <%= child_cat.name == @product.category.name ? "selected" : ""%>><%= child_cat.name %></option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

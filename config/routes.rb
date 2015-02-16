@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   namespace :admin do
     get 'dashboard' => 'dashboard#show'
+    get 'products/manage' => 'products#manage'
+    get 'product/:id/edit' => 'products#edit', as: :product_edit
   end
 
   resources :products
