@@ -3,45 +3,47 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Edit <%= @product.name %>
+        Save <%= @product.name %>
       </div>
 
       <div class="panel-body">
         <div class="col-lg-12">
+            <%= form_for @product, url: admin_product_update_path, method: :put do |p| %>
+              <div class="form-group">
+                <label>Product name</label>
+                <%= p.text_field :name, class: "form-control", placeholder: "Product name" %>
+              </div>
 
-          <div class="form-group">
-            <label>Product name</label>
-            <input class="form-control" placeholder="Product name" value="<%= @product.name %>">
-          </div>
+              <div class="form-group">
+                <label>Product description</label>
+                <%= p.text_area :description, class: "form-control", rows: "3" %>
+              </div>
 
-          <div class="form-group">
-            <label>Product description</label>
-            <textarea class="form-control" rows="3"><%= @product.description %></textarea>
-          </div>
+              <label>Product price</label>
+              <div class="form-group input-group">
+                <span class="input-group-addon">₹</span>
+                <%= p.fields_for @product.price do |price| %>
+                    <%= price.text_field :amount, class: "form-control", placeholder: "Product price" %>
+                <% end %>
+              </div>
 
-          <label>Product price</label>
-          <div class="form-group input-group">
-            <span class="input-group-addon">₹</span>
-            <input type="text" class="form-control" value="<%= @product.price.amount %>">
-          </div>
+              <div class="form-group">
+                <label>Product code</label>
+                <%= p.text_field :code, class: "form-control", placeholder: "Product code" %>
+              </div>
 
-          <div class="form-group">
-            <label>Product code</label>
-            <input class="form-control" placeholder="Product code" value="<%= @product.code %>">
-          </div>
+              <div class="form-group">
+                <label>Product category</label>
+                <select name="product[category_id]" id="product_category_id" class="form-control">
+                    <%= option_groups_from_collection_for_select(Category.all.select(&:is_root?), :descendants, :name, :id, :name, @product.category.id) %>
+                </select>
+              </div>
 
-          <div class="form-group">
-            <label>Product category</label>
-            <select id="category_select" class="form-control">
-              <% Category.all.select(&:is_root?).each do |category| %>
-                <optgroup label="<%= category.name %>">
-                  <% category.descendants.each do |child_cat| %>
-                    <option value="<%= child_cat.name %>" <%= child_cat.name == @product.category.name ? "selected" : ""%>><%= child_cat.name %></option>
-                  <% end %>
-                </optgroup>
-              <% end %>
-            </select>
-          </div>
+              <div class="form-group text-center">
+                <a type="button" class="btn btn-outline btn-danger" href="<%= admin_products_manage_path %>">Cancel</a>
+                <%= submit_tag("Save", class: "btn btn-success") %>
+              </div>
+          <% end %>
 
         </div>
       </div>
