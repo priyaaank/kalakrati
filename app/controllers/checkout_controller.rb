@@ -72,7 +72,7 @@ class CheckoutController < ApplicationController
             currency: item.price.currency
         },
         quantity: item.quantity,
-        thumbnail_url: img_url(item.product.images.first.url),
+        thumbnail_url: item.product.images.first.url,
         details_url: url_for(item.product)
       }
     end
@@ -86,7 +86,4 @@ class CheckoutController < ApplicationController
     request.protocol + request.host_with_port + checkout_order_path(order.id)
   end
 
-  def img_url image
-    ActionController::Base.helpers.asset_path(image)
-  end
 end

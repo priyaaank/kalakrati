@@ -1,4 +1,5 @@
 .col-lg-6.col-md-6.col-sm-6
   .main-image.sp-wrap.col-lg-12.no-padding.style2{:style => "display: inline-block;"}
-    %a(href="#{asset_path(@product.primary_image.url)}")
-      %img{:src => "#{asset_path(@product.primary_image.url)}", :alt=>""}
+    - @product.images.each do |img|
+      %a(href="#{img.url}")
+        %img{:src => "#{img.url}", :alt => ""}

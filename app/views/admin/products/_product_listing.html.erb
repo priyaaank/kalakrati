@@ -6,7 +6,7 @@
         Product list
       </p>
       <p class="pull-right">
-        <a href="" class="btn btn-success">Add product</a>
+        <a href="<%= admin_new_product_path %>" class="btn btn-success">Add product</a>
       </p>
     </div>
     <!-- /.panel-heading -->
@@ -27,7 +27,7 @@
           <tbody>
           <% @products.each do |product| %>
               <tr>
-                <td class="text-center"><img src="<%= asset_path(product.images.first.url) %>" style="max-height:100px;"></td>
+                <td class="text-center"><img src="<%= product.images.present? ? product.images.first.url : '' %>" style="max-height:100px;"></td>
                 <td><%= product.name %></td>
                 <td><%= product.description %></td>
                 <td>₹ <%= product.price.amount %></td>

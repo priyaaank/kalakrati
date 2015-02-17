@@ -13,3 +13,4 @@
 //= require_directory ../jquery/2.1.3/
 //= require_directory .
 //= require ../bootstrap.min
+//= require cloudinary

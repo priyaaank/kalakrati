@@ -56,14 +56,10 @@ class CartController < ApplicationController
         },
         description: item.product.description,
         quantity: item.quantity,
-        thumbnail_url: img_url(item.product.images.first.url),
+        thumbnail_url: item.product.images.first.url,
         details_url: url_for(item.product)
       }
     end
-  end
-
-  def img_url image
-    ActionController::Base.helpers.asset_path(image)
   end
 
 end

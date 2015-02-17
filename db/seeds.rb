@@ -39,80 +39,80 @@ ceramic_pots = Category.create!(name: "Pots", description: "Ceramic pots", paren
 brushless_painting_price = Price.new
 brushless_painting_price.amount = 900
 brushless_painting = Product.new(name: "Brushless painting", description: "Green nature on a canvas without the brush.", code: "canvaspainting01", price: brushless_painting_price, category: canvas_paintings)
-brushless_painting.images << Image.new(url: "product/canvas/paintings/brushless_painting_nature.jpg", primary: true)
+brushless_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184579/brushless_painting_nature_ft3tns.jpg", primary: true, public_id: "brushless_painting_nature_ft3tns")
 brushless_painting.save!
 
 rangoli_painting_price = Price.new
 rangoli_painting_price.amount = 900
 rangoli_painting = Product.new(name: "Rangoli painting", description: "Readymade rangoli painting", code: "canvaspainting02", price: rangoli_painting_price, category: canvas_paintings)
-rangoli_painting.images << Image.new(url: "product/canvas/paintings/rangoli_painting.jpg", primary: true)
+rangoli_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184523/rangoli_painting_n5lz9w.jpg", primary: true, public_id: "rangoli_painting_n5lz9w")
 rangoli_painting.save!
 
 glass_look_painting_price = Price.new
 glass_look_painting_price.amount = 900
 glass_look_painting = Product.new(name: "Glass look painting", description: "A painting made on canvas that looks like glass.", code: "canvaspainting03", price: glass_look_painting_price, category: canvas_paintings)
-glass_look_painting.images << Image.new(url: "product/canvas/paintings/glass_painting.jpg", primary: true)
+glass_look_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184596/glass_painting_gguyv8.jpg", primary: true, public_id: "glass_painting_gguyv8")
 glass_look_painting.save!
 
 canvas_photo_frame_painting_price = Price.new
 canvas_photo_frame_painting_price.amount = 1000
 canvas_photo_frame_painting = Product.new(name: "Canvas photo frame", description: "A photo frame on canvas.", code: "canvaspainting04", price: canvas_photo_frame_painting_price, category: canvas_paintings)
-canvas_photo_frame_painting.images << Image.new(url: "product/canvas/paintings/canvas_photo_frame.jpg", primary: true)
+canvas_photo_frame_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184518/canvas_photo_frame_cycotn.jpg", primary: true, public_id: "canvas_photo_frame_cycotn")
 canvas_photo_frame_painting.save!
 
 ## Glass Products
 rose_bottle_price = Price.new
 rose_bottle_price.amount = 1200
 rose_bottle = Product.new(name: "Rose bottle with white flowers", description: "Rose bottle with white flowers", code: "Bottle13", price: rose_bottle_price, category: glass_bottles)
-rose_bottle.images << Image.new(url: "product/glass/rose_bottle_with_white_flowers.jpg", primary: true)
+rose_bottle.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184537/rose_bottle_with_white_flowers_ouguln.jpg", primary: true, public_id: "rose_bottle_with_white_flowers_ouguln")
 rose_bottle.save!
 
 brown_bottle_price = Price.new
 brown_bottle_price.amount = 1000
 brown_bottle = Product.new(name: "Brown bottle with flowers", description: "Brown bottle with flowers", code: "Bottle12", price: brown_bottle_price, category: glass_bottles)
-brown_bottle.images <<  Image.new(url: "product/glass/brown_bottle_with_rope_1.jpg", primary: true)
-brown_bottle.images <<  Image.new(url: "product/glass/brown_bottle_with_rope_2.jpg", primary: false)
+brown_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184498/brown_bottle_with_flowers_3_dvcl2f.jpg", primary: true, public_id: "brown_bottle_with_flowers_3_dvcl2f")
+brown_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184523/brown_bottle_with_rope_2_fn1khk.jpg", primary: false, public_id: "brown_bottle_with_rope_2_fn1khk")
 brown_bottle.save!
 
 blue_bottle_price = Price.new
 blue_bottle_price.amount = 900
 blue_bottle = Product.new(name: "Blue bottles with gems", description: "Blue bottle with gems", code: "Bottle02", price: blue_bottle_price, category: glass_bottles)
-blue_bottle.images <<  Image.new(url: "product/glass/blue_bottle_with_gems_1.jpg", primary: true)
-blue_bottle.images <<  Image.new(url: "product/glass/blue_bottle_with_gems_2.jpg", primary: false)
+blue_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184474/blue_bottle_with_gems_2_ri90cv.jpg", primary: true, public_id: "blue_bottle_with_gems_2_ri90cv")
+blue_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184462/blue_bottle_with_gems_1_cwufbt.jpg", primary: false, public_id: "blue_bottle_with_gems_1_cwufbt")
 blue_bottle.save!
 
 green_bottle_price = Price.new
 green_bottle_price.amount = 500
 green_bottle = Product.new(name: "Green bottle with rope", description: "Green bottle with rope", code: "Bottle22", price: green_bottle_price, category: glass_bottles)
-green_bottle.images <<  Image.new(url: "product/glass/green_bottle_with_rope_1.jpg", primary: true)
-green_bottle.images <<  Image.new(url: "product/glass/green_bottle_with_rope_2.jpg", primary: false)
+green_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184532/green_bottle_with_rope_2_tivr8i.jpg", primary: true, public_id: "green_bottle_with_rope_2_tivr8i")
+green_bottle.images <<  Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184522/green_bottle_with_rope_1_izafaa.jpg", primary: false, public_id: "green_bottle_with_rope_1_izafaa")
 green_bottle.save!
 
 ## Paper Products
 blue_basket_price = Price.new
 blue_basket_price.amount = 500
 blue_basket = Product.new(name: "Blue basket", description: "Blue basket for dry contents", code: "Basket12", price: blue_basket_price, category: paper_crafts)
-blue_basket.images << Image.new(url: "product/paper/blue_basket.jpg", primary: true)
+blue_basket.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184603/blue_basket_tp3k0u.jpg", primary: true, public_id: "blue_basket_tp3k0u")
 blue_basket.save!
 
 
 pen_stand_chilly_price = Price.new
 pen_stand_chilly_price.amount = 800
 pen_stand_chilly = Product.new(name: "Pen stand with chilly", description: "A pen stand with chilly. Perfect desk companion.", code: "PenStand11", price: pen_stand_chilly_price)
-pen_stand_chilly.images << Image.new(url: "product/paper/pen_stand_chilly.jpg", primary: true)
+pen_stand_chilly.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184611/pen_stand_chilly_aicvin.jpg", primary: true, public_id: "pen_stand_chilly_aicvin")
 pen_stand_chilly.category = paper_crafts
 pen_stand_chilly.save!
 
 pen_stand_butterfly_price = Price.new
 pen_stand_butterfly_price.amount = 800
 pen_stand_butterfly = Product.new(name: "Pen stand with butterfly", description: "A pen stand with butterfly. Perfect desk companion.", code: "PenStand12", price: pen_stand_butterfly_price)
-pen_stand_butterfly.images << Image.new(url: "product/paper/pen_stand_butterfly.jpg", primary: true)
+pen_stand_butterfly.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184610/pen_stand_butterfly_rn5spm.jpg", primary: true)
 pen_stand_butterfly.category = paper_crafts
 pen_stand_butterfly.save!
 
 paper_bag_fish_price = Price.new
 paper_bag_fish_price.amount = 150
 paper_bag_fish = Product.new(name: "Paper bag with fish", description: "A paper bag with fish art work. Perfect accessory to gift our personalized handicrafts.", code: "PaperBag12", price: paper_bag_fish_price)
-paper_bag_fish.images << Image.new(url: "product/paper/paper_bag_fish.jpg", primary: true)
+paper_bag_fish.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184568/paper_bag_fish_t0ixrh.jpg", primary: true)
 paper_bag_fish.category = paper_crafts
 paper_bag_fish.save!

@@ -1,3 +1,4 @@
+
 <%= render partial: "admin/shared/page_header", locals: {page_title: "#{@product.name}"} %>
 <div class="row">
   <div class="col-lg-12">
@@ -6,47 +7,8 @@
         Save <%= @product.name %>
       </div>
 
-      <div class="panel-body">
-        <div class="col-lg-12">
-            <%= form_for @product, url: admin_product_update_path, method: :put do |p| %>
-              <div class="form-group">
-                <label>Product name</label>
-                <%= p.text_field :name, class: "form-control", placeholder: "Product name" %>
-              </div>
+      <%= render partial: "product_details_form", locals: {form_submit_path: admin_product_update_path, submit_method: :put} %>
 
-              <div class="form-group">
-                <label>Product description</label>
-                <%= p.text_area :description, class: "form-control", rows: "3" %>
-              </div>
-
-              <label>Product price</label>
-              <div class="form-group input-group">
-                <span class="input-group-addon">₹</span>
-                <%= p.fields_for @product.price do |price| %>
-                    <%= price.text_field :amount, class: "form-control", placeholder: "Product price" %>
-                <% end %>
-              </div>
-
-              <div class="form-group">
-                <label>Product code</label>
-                <%= p.text_field :code, class: "form-control", placeholder: "Product code" %>
-              </div>
-
-              <div class="form-group">
-                <label>Product category</label>
-                <select name="product[category_id]" id="product_category_id" class="form-control">
-                    <%= option_groups_from_collection_for_select(Category.all.select(&:is_root?), :descendants, :name, :id, :name, @product.category.id) %>
-                </select>
-              </div>
-
-              <div class="form-group text-center">
-                <a type="button" class="btn btn-outline btn-danger" href="<%= admin_products_manage_path %>">Cancel</a>
-                <%= submit_tag("Save", class: "btn btn-success") %>
-              </div>
-          <% end %>
-
-        </div>
-      </div>
     </div>
   </div>
 </div>

@@ -5,8 +5,7 @@ module Admin::ProductHelper
   end
 
   def image_path_for_product product
-    image = product.images.first
-    asset_path(image)
+    product.images.first
   end
 
 end

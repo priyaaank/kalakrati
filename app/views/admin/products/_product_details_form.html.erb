@@ -1,0 +1,55 @@
+<div class="panel-body">
+  <div class="col-lg-12">
+    <%= form_for @product, url: form_submit_path, method: submit_method do |p| %>
+
+        <div class="form_line drag_area drag_area">
+          <%= p.label :image, "Images" %>
+          <div class="form_controls">
+            <%= p.file_field :image, multiple: true %>
+          </div>
+        </div>
+
+        <div class="form_line">
+          <div class="form_controls">
+            <div class="preview"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Product name</label>
+          <%= p.text_field :name, class: "form-control", placeholder: "Product name" %>
+        </div>
+
+        <div class="form-group">
+          <label>Product description</label>
+          <%= p.text_area :description, class: "form-control", rows: "3" %>
+        </div>
+
+        <label>Product price</label>
+        <div class="form-group input-group">
+          <span class="input-group-addon">₹</span>
+          <%= p.fields_for @product.price do |price| %>
+              <%= price.text_field :amount, class: "form-control", placeholder: "Product price" %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <label>Product code</label>
+          <%= p.text_field :code, class: "form-control", placeholder: "Product code" %>
+        </div>
+
+        <div class="form-group">
+          <label>Product category</label>
+          <select name="product[category_id]" id="product_category_id" class="form-control">
+            <%= option_groups_from_collection_for_select(Category.all.select(&:is_root?), :descendants, :name, :id, :name, @product.category.nil? ? -1 : @product.category.id) %>
+          </select>
+        </div>
+
+        <div class="form-group text-center">
+          <a type="button" class="btn btn-outline btn-danger" href="<%= admin_products_manage_path %>">Cancel</a>
+          <%= submit_tag("Save", class: "btn btn-success") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>

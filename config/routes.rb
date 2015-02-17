@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#show'
     get 'products/manage' => 'products#manage'
     get 'product/:id/edit' => 'products#edit', as: :product_edit
+    get 'product/new' => 'products#new', as: :new_product
+    post 'product/' => 'products#create', as: :product_create
     put 'product/:id' => 'products#update', as: :product_update
+    post 'product/image/upload' => 'products#upload', as: :product_image_upload
   end
 
   resources :products

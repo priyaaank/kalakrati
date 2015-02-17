@@ -34,7 +34,7 @@
                 
             .image
               %a{:href=> url_for(product) }
-                %img.img-responsive{:src=> asset_path(product.images.first.url), :alt=>"image"}
+                %img.img-responsive{:src=> product.images.first.url, :alt=>"image"}
               .promotion
                 %span.new-product New
             .description
