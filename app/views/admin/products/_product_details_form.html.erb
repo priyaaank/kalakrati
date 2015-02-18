@@ -7,16 +7,18 @@
 
     <div class="row">
       <% @product.images.each do |img| %>
-          <%= form_tag(admin_product_image_delete_path(id: @product.id, image_id: img.public_id), method: :delete) do |f| %>
-              <div class="col-xs-2">
-                <div class="text-center">
-                  <img src="<%= img.url %>" style="max-height:100px;"/>
-                </div>
-                <div class="text-center">
-                  <%= submit_tag("Delete", class: "btn btn-link") %>
-                </div>
-              </div>
-          <% end %>
+          <% if img.public_id.present? %>
+              <%= form_tag(admin_product_image_delete_path(id: @product.id, image_id: img.public_id), method: :delete) do |f| %>
+                  <div class="col-xs-2">
+                    <div class="text-center">
+                      <img src="<%= img.url %>" style="max-height:100px;"/>
+                    </div>
+                    <div class="text-center">
+                      <%= submit_tag("Delete", class: "btn btn-link") %>
+                    </div>
+                  </div>
+              <% end %>
+          <% if img.public_id.present? %>
       <% end %>
     </div>
 
