@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#show'
     get 'products/manage' => 'products#manage'
     get 'product/:id/edit' => 'products#edit', as: :product_edit
+    delete 'product/:id/image/:image_id' => 'products#delete_image', as: :product_image_delete
     get 'product/new' => 'products#new', as: :new_product
     post 'product/' => 'products#create', as: :product_create
     put 'product/:id' => 'products#update', as: :product_update

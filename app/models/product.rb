@@ -23,7 +23,7 @@ class Product
   def update_images image_metadata
     if image_metadata.present?
       image_metadata.each do |metadata|
-        images << Image.new(url: metadata["url"], primary: false)
+        images << Image.new(url: metadata["url"], primary: false, public_id: metadata["public_id"])
       end
       images.each_with_index { |img, index| img.primary = (index == 0) }
       self.save!
