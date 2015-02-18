@@ -14,6 +14,8 @@ class Product
   accepts_nested_attributes_for :price
   accepts_nested_attributes_for :images
 
+  validates_presence_of :name, :description, :code
+
   def primary_image
     images.select {|img| img.primary }.first
   end

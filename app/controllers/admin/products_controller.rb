@@ -10,9 +10,14 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
+    image_data =  params[:product][:image]
     @product = Product.new(product_params)
+    if image_data.nil? || !@product.valid?
+      flash.now[:error] = "All fields are required with at least one image for product specified."
+      render :new and return
+    end
     @product.save!
-    save_images(@product, params[:product][:image])
+    save_images(@product, image_data)
     redirect_to action: 'manage'
   end
 

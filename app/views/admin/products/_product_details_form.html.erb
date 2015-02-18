@@ -1,5 +1,10 @@
 <div class="panel-body">
   <div class="col-lg-12">
+
+    <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: "alert alert-danger" %>
+    <% end -%>
+
     <%= form_for @product, url: form_submit_path, method: submit_method do |p| %>
 
         <div class="form_line drag_area drag_area">
