@@ -39,13 +39,13 @@ ceramic_pots = Category.create!(name: "Pots", description: "Ceramic pots", paren
 brushless_painting_price = Price.new
 brushless_painting_price.amount = 900
 brushless_painting = Product.new(name: "Brushless painting", description: "Green nature on a canvas without the brush.", code: "canvaspainting01", price: brushless_painting_price, category: canvas_paintings)
-brushless_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184579/brushless_painting_nature_ft3tns.jpg", primary: true, public_id: "brushless_painting_nature_ft3tns")
+brushless_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184579/brushless_painting_nature_y2pgyy.jpg", primary: true, public_id: "brushless_painting_nature_y2pgyy")
 brushless_painting.save!
 
 rangoli_painting_price = Price.new
 rangoli_painting_price.amount = 900
 rangoli_painting = Product.new(name: "Rangoli painting", description: "Readymade rangoli painting", code: "canvaspainting02", price: rangoli_painting_price, category: canvas_paintings)
-rangoli_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184523/rangoli_painting_n5lz9w.jpg", primary: true, public_id: "rangoli_painting_n5lz9w")
+rangoli_painting.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424286923/rangoli_painting_gyovuw.jpg", primary: true, public_id: "rangoli_painting_gyovuw")
 rangoli_painting.save!
 
 glass_look_painting_price = Price.new
@@ -94,7 +94,6 @@ blue_basket_price.amount = 500
 blue_basket = Product.new(name: "Blue basket", description: "Blue basket for dry contents", code: "Basket12", price: blue_basket_price, category: paper_crafts)
 blue_basket.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184603/blue_basket_tp3k0u.jpg", primary: true, public_id: "blue_basket_tp3k0u")
 blue_basket.save!
-
 
 pen_stand_chilly_price = Price.new
 pen_stand_chilly_price.amount = 800
