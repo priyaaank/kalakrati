@@ -105,13 +105,13 @@ pen_stand_chilly.save!
 pen_stand_butterfly_price = Price.new
 pen_stand_butterfly_price.amount = 800
 pen_stand_butterfly = Product.new(name: "Pen stand with butterfly", description: "A pen stand with butterfly. Perfect desk companion.", code: "PenStand12", price: pen_stand_butterfly_price)
-pen_stand_butterfly.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184610/pen_stand_butterfly_rn5spm.jpg", primary: true)
+pen_stand_butterfly.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184610/pen_stand_butterfly_rn5spm.jpg", primary: true, public_id: "pen_stand_butterfly_rn5spm")
 pen_stand_butterfly.category = paper_crafts
 pen_stand_butterfly.save!
 
 paper_bag_fish_price = Price.new
 paper_bag_fish_price.amount = 150
 paper_bag_fish = Product.new(name: "Paper bag with fish", description: "A paper bag with fish art work. Perfect accessory to gift our personalized handicrafts.", code: "PaperBag12", price: paper_bag_fish_price)
-paper_bag_fish.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184568/paper_bag_fish_t0ixrh.jpg", primary: true)
+paper_bag_fish.images << Image.new(url: "http://res.cloudinary.com/kalakrati/image/upload/v1424184568/paper_bag_fish_t0ixrh.jpg", primary: true, public_id: "paper_bag_fish_t0ixrh")
 paper_bag_fish.category = paper_crafts
 paper_bag_fish.save!
