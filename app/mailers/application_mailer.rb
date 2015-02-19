@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "orders.kalakrati@outlook.com"
+  default from: ENV['KALAKRATI_EMAIL']
   # layout 'mailer'
 end
