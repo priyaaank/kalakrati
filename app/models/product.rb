@@ -5,6 +5,7 @@ class Product
   field :name, type: String
   field :description, type: String
   field :code, type: String
+  field :in_stock, type: Boolean, default: true
 
   embeds_many :tags
   embeds_many :images, cascade_callbacks: true

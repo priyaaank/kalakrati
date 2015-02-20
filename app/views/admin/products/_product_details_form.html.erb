@@ -68,6 +68,11 @@
           </select>
         </div>
 
+        <div class="form-group">
+          <label>In stock</label>
+          <%= p.check_box :in_stock, {}, "true", "false" %>
+        </div>
+
         <div class="form-group text-center">
           <a class="btn btn-outline btn-danger" href="<%= admin_products_manage_path %>">Cancel</a>
           <%= submit_tag("Save", class: "btn btn-success") %>

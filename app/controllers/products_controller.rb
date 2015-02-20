@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
       :details_url => url_for(product),
       :images => hash_for_images(product.images),
       :name => product.name,
+      :in_stock => product.in_stock,
       :price => {
           amount: product.price.amount,
           currency: product.price.currency

@@ -1,17 +1,19 @@
 .cart-actions
   .addto
-    %button{"ng-click"=>"AddToCart('#{@product.id}')", :class=>"button btn-cart cart first", :title=>"Add to Cart", :type=>"button"} Add to Cart
-    %a.link-wishlist.wishlist{:style => "display:none;"} Add to Wishlist
+    - if @product.in_stock
+      %button{"ng-click"=>"AddToCart('#{@product.id}')", :class=>"button btn-cart cart first", :title=>"Add to Cart", :type=>"button"} Add to Cart
+      %a.link-wishlist.wishlist{:style => "display:none;"} Add to Wishlist
 
   %div{:style => "clear:both"}
 
-  %h3.incaps
-    %i.fa.fa.fa-check-circle-o.color-in
-    In stock
 
-  %h3.incaps{:style => "display:none"}
-    %i.fa.fa.fa-minus-circle-o.color-out
-    Out of stock
+  %h3.incaps
+    - if @product.in_stock
+      %i.fa.fa.fa-check-circle-o.color-in
+      In stock
+    - else
+      %i.fa.fa.fa-minus-circle.color-out
+      Out of stock
 
   %h3.incaps
     %i.glyphicon.glyphicon-lock

@@ -78,6 +78,11 @@ GEM
       tzinfo (>= 0.3.37)
     mongoid-ancestry (0.4.2)
       mongoid
+    mongoid_rails_migrations (1.0.1)
+      activesupport (>= 3.2.0)
+      bundler (>= 1.0.0)
+      rails (>= 3.2.0)
+      railties (>= 3.2.0)
     moped (2.0.0)
       bson (~> 2.2)
       connection_pool (~> 2.0)
@@ -163,6 +168,7 @@ DEPENDENCIES
   jquery-rails
   mongoid
   mongoid-ancestry
+  mongoid_rails_migrations
   moped
   rails (= 4.1.6)
   rails_12factor

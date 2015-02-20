@@ -23,10 +23,10 @@
             .price
               %span {{product.price.currency}} {{product.price.amount}}
             .action-control
-              %a.btn.btn-primary{"ng-click"=>"addToCart(product.id)"}
+              %a.btn{"ng-click"=>"addToCart(product.id)", "ng-class" => "{true: 'btn-primary', false: 'btn-default disabled'}[product.in_stock]"}
                 %span.add2cart
-                  %i.glyphicon.glyphicon-shopping-cart
-                Add to cart
+                  %i.glyphicon{"ng-class" => "{true: 'glyphicon-shopping-cart', false: ''}[product.in_stock]"}
+                {{product.in_stock ? 'Add to cart' : 'Out of stock'}}
       .row{"ng-hide" => "isLastPage"}
         .load-more-block.text-center
           %a.btn.btn-thin{"ng-click"=>"loadNextPage()"}

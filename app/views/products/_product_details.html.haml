@@ -1,7 +1,7 @@
 %h1.product-title
   = @product.name
 %h3.product-code
-  = @product.code
+  = "Product Code: #{@product.code}"
 .product-price
   %span.price-sales
     = "#{@product.price.currency} #{@product.price.amount}"

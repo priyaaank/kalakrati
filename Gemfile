@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 gem 'mongoid'
 gem 'mongoid-ancestry'
+gem 'mongoid_rails_migrations'
 gem 'moped'
 gem 'haml'
 gem 'carrierwave'

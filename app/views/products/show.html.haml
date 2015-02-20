@@ -7,17 +7,18 @@
     .col-lg-6.col-md-6.col-sm-5
       = render :partial => "product_details"
 
-      .productFilter
-        .filterBox
-          %select{:style => "display: none;", "ng-model" => "selectedQuantity", "ng-options" => "quantity.key for quantity in quantities"}
+      - if @product.in_stock
+        .productFilter
+          .filterBox
+            %select{:style => "display: none;", "ng-model" => "selectedQuantity", "ng-options" => "quantity.key for quantity in quantities"}
 
 
-        = render :partial => "cart_actions"
-        
-        .clear
-          
-        =render :partial => "product_summary"
+      = render :partial => "cart_actions"
 
-        %div{:style => "clear:both"}
+      .clear
 
-        = render :partial => "product_share_options"
+      =render :partial => "product_summary"
+
+      %div{:style => "clear:both"}
+
+      = render :partial => "product_share_options"

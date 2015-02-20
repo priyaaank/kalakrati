@@ -11,7 +11,7 @@ class CartController < ApplicationController
     product_id_to_add = params[:productId]
     quantity_to_add = params[:quantity]
     product = Product.where(:id => product_id_to_add).first
-    if product.present?
+    if product.present? && product.in_stock
       guest_shopping_cart.add(product, quantity_to_add)
       status_code = 200
     else
