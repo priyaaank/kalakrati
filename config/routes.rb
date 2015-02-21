@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   put 'cart/items' => 'cart#update'
   delete 'cart/item/:id' => 'cart#destroy'
 
+  post 'feedback' => 'feedback#create', as: :create_feedback
+
   get 'information/contactus' => 'information#contact'
   get 'information/about' => 'information#about'
   get 'information/conditions' => 'information#tnc'
