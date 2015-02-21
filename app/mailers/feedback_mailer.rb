@@ -4,7 +4,7 @@ class FeedbackMailer < ApplicationMailer
     @feedback = feedback
     mail(
         to: "feedback.kalakrati@outlook.com",
-        subject: "New Feedback from [#{@feedback.from_name} - #{@feedback.from_email}]",
+        subject: "New Feedback from #{@feedback.from_name} [#{@feedback.from_email}]",
         template_name: 'new_feedback'
     )
   end
