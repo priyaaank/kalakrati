@@ -22,7 +22,7 @@ kalakratiApp.controller('CategoryController', ['$scope', '$http', 'CategoryProdu
     };
 
     $scope.updateProductsForPage = function(pageNumber) {
-        CategoryProductListingService.CategoryProductsUrl = CategoryProductListingService.CategoryProductsUrl.replace(/\d+.json/, pageNumber+".json");
+        CategoryProductListingService.CategoryProductsUrl = CategoryProductListingService.CategoryProductsUrl.replace(/\d+$/, pageNumber-1);
         CategoryProductListingService.FetchCategoryDetailsFor();
     };
 

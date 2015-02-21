@@ -2,7 +2,7 @@ class ProductsPresenter
 
   attr_accessor :records_per_page, :page
 
-  def initialize(category_id = nil, page = 0, records_per_page = 4)
+  def initialize(category_id = nil, page = 0, records_per_page = 8)
     @category_id = category_id
     @page = (page.is_a? Numeric) ? page : page.to_i
     @records_per_page = records_per_page
