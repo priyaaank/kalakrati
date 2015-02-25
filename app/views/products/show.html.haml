@@ -1,6 +1,7 @@
 - content_for :head do
   %meta{:property=>"og:url", :content=>"#{product_url(@product.id)}"}
-  %meta{:property=>"description", :content=>"#{@product.description}"}
+  %meta{:property=>"og:description", :content=>"#{@product.description}"}
+  %meta{:property=>"og:title", :content=>"#{@product.name}"}
   %meta{:property=>"og:site_name", :content=>"Kalakrati"}
   %meta{:property=>"og:image", :content=> "#{asset_url("#{@product.images.first.url}")}"}
 
