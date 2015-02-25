@@ -1,3 +1,9 @@
+- content_for :head do
+  %meta{:property=>"og:url", :content=>"#{category_listing_url(@category.id, @category.name)}"}
+  %meta{:property=>"description", :content=>"#{@category.description}"}
+  %meta{:property=>"og:site_name", :content=>"Kalakrati"}
+  %meta{:property=>"og:image", :content=> "#{asset_url("#{@category.menu_image}")}"}
+
 .container.main-container.headerOffset{"ng-controller"=>"CategoryController", "ng-init" => "triggerProductFetchForCategory('#{category_category_product_page_path(@category.id, 0)}')"}
   = render partial: "breadcrumb"
 

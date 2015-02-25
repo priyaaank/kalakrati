@@ -1,3 +1,8 @@
+- content_for :head do
+  %meta{:property=>"description", :content=>"Kalakrati is a store for finding handcrafted products. We build products from materials that are typically wasted and turn them into beautiful decorative and useful gifts and arcticles."}
+  %meta{:property=>"og:site_name", :content=>"Kalakrati"}
+  %meta{:property=>"og:image", :content=> "#{asset_url('parallax/abus2.jpg')}"}
+
 = render :partial => "banner"
 -#= render :partial => "new_arrivals"
 = render :partial => "product_listing"
