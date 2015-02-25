@@ -1,7 +1,7 @@
 $(document).ready(function(){
     fm_options = {
         jQueryUI : false,
-        position : "left-top",
+        position : "left-bottom",
         name_placeholder:"Name please",
         trigger_label : "Feedback",
         title_label: "Tell us what you think",
