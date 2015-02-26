@@ -29,6 +29,6 @@
             %i.fa.fa-shopping-cart.fa-5x
           .col-xs-9.text-right
             .huge
-              = @shopping_cart_count
+              = "#{@abandoned_shopping_cart_count} of total #{@shopping_cart_count}"
             %div
-              Pending Carts
+              carts are waiting for user to checkout
