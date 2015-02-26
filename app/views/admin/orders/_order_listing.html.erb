@@ -38,7 +38,7 @@
                   <td><%= order.payment_notes %></td>
                   <td><%= order.order_items.count %></td>
                   <td>₹ <%= order.total_order_amount %></td>
-                  <td class="text-center"><a class="btn btn-outline btn-success" href="#">Details</a></td>
+                  <td class="text-center"><a class="btn btn-outline btn-success" href="<%= admin_order_show_path(order.id) %>">Details</a></td>
                 </tr>
             <% end %>
             </tbody>

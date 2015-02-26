@@ -1,0 +1,33 @@
+<div class="panel-body">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Item image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total cost</th>
+        <th>Details</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @order.order_items.each do |item| %>
+          <tr>
+            <td class="text-center"><img src="<%= item.product.images.present? ? item.product.images.first.url : '' %>" style="max-height:100px;"></td>
+            <td><%= item.product.name %></td>
+            <td><%= item.product.description %></td>
+            <td>
+              <%= item.product.price.amount %>
+            </td>
+            <td><%= item.quantity %> </td>
+            <td><%= item.total_cost %></td>
+            <td class="text-center"><a class="btn btn-outline btn-success" href="<%= product_path(item.product.id) %>" target="_product">Details</a></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.table-responsive -->
+</div>
