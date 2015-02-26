@@ -26,7 +26,7 @@
             <tbody>
             <% @orders.each do |order| %>
                 <tr>
-                  <td><%= order.id.to_s %></td>
+                  <td><a href="<%= checkout_order_url(order) %>" target="_order"><%= order.id.to_s %></a></td>
                   <td><%= order.customer_name %></td>
                   <td>
                     <%= order.display_address %>
