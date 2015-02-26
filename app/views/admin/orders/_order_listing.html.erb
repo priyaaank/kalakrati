@@ -13,6 +13,7 @@
             <thead>
             <tr>
               <th>Order #</th>
+              <th>Date</th>
               <th>Customer name</th>
               <th>Address</th>
               <th>Phone / Email</th>
@@ -27,6 +28,7 @@
             <% @orders.each do |order| %>
                 <tr>
                   <td><a href="<%= checkout_order_url(order) %>" target="_order"><%= order.id.to_s %></a></td>
+                  <td><%= order.order_date.strftime("%d-%b-%Y") %></td>
                   <td><%= order.customer_name %></td>
                   <td>
                     <%= order.display_address %>
