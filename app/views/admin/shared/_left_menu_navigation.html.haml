@@ -6,7 +6,7 @@
           %i.fa.fa-dashboard.fa-fw
           Dashboard
       %li
-        %a{:href=>"#"}
+        %a{:href=>"#{admin_orders_manage_path}", class: "#{current_page?(admin_orders_manage_path) ? 'active' : ''}"}
           %i.fa.fa-inbox.fa-fw
           Orders
       %li

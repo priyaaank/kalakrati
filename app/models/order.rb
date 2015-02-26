@@ -9,6 +9,8 @@ class Order
 
   field :currency, type: String, default: Price::Symbol::INR
 
+
+
   def self.from_cart shopping_cart
     new_order = Order.new
     new_order.address = shopping_cart.address
@@ -18,6 +20,14 @@ class Order
     new_order.payment_notes = shopping_cart.payment_notes
     new_order.save!
     new_order
+  end
+
+  def customer_name
+    "#{self.address.first_name||''} #{self.address.last_name||''}"
+  end
+
+  def display_address
+    "#{address.address_line1||''} \n #{address.address_line2||''} #{address.city || ''} #{address.state || ''} #{address.zipcode || ''} #{address.country || ''}"
   end
 
   def total_order_amount

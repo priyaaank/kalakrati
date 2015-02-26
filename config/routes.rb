@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     post 'product/' => 'products#create', as: :product_create
     put 'product/:id' => 'products#update', as: :product_update
     post 'product/image/upload' => 'products#upload', as: :product_image_upload
+    get 'orders/manage' => 'orders#manage', as: :orders_manage
   end
 
   resources :products
