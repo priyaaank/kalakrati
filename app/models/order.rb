@@ -11,19 +11,19 @@ class Order
 
   field :currency, type: String, default: Price::Symbol::INR
 
-  state_machine :order_state, :initial => :ordered do
+  state_machine :state, :initial => :ordered do
 
     before_transition :audit_log
 
-    event :pay do
+    event :paid do
       transition :ordered => :paid
     end
 
-    event :ship do
+    event :shipped do
       transition [:ordered, :paid] => :shipped
     end
 
-    event :deliver do
+    event :delivered do
       transition [:ordered, :paid, :shipped] => :delivered
     end
 

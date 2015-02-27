@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post 'product/image/upload' => 'products#upload', as: :product_image_upload
     get 'orders/manage' => 'orders#manage', as: :orders_manage
     get 'order/:id' => 'orders#show', as: :order_show
+    get 'order/:id/:state' => 'orders#update', as: :order_update
   end
 
   resources :products
