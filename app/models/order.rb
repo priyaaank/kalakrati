@@ -7,8 +7,39 @@ class Order
   field :order_date, type: DateTime
   has_many :order_items
   embeds_one :address
+  embeds_many :order_audit_logs
 
   field :currency, type: String, default: Price::Symbol::INR
+
+  state_machine :order_state, :initial => :ordered do
+
+    before_transition :audit_log
+
+    event :pay do
+      transition :ordered => :paid
+    end
+
+    event :ship do
+      transition [:ordered, :paid] => :shipped
+    end
+
+    event :deliver do
+      transition [:ordered, :paid, :shipped] => :delivered
+    end
+
+    event :refund do
+      transition [:cancelled, :delivered] => :refunded
+    end
+
+    event :cancel do
+      transition [:ordered, :paid, :shipped] => :cancelled
+    end
+
+  end
+
+  def audit_log(transition)
+    self.order_audit_logs << OrderAuditLog.new(from: transition.from, to: transition.to, event: transition.event, when: Time.now)
+  end
 
   def self.from_cart shopping_cart
     new_order = Order.new

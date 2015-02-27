@@ -32,8 +32,8 @@ gem 'mongoid-ancestry'
 gem 'mongoid_rails_migrations'
 gem 'moped'
 gem 'haml'
-gem 'carrierwave'
 gem 'cloudinary'
+gem 'state_machine'
 
 gem 'rails_12factor', group: :production
 gem 'thin'
