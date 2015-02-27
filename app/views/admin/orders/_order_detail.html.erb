@@ -4,6 +4,7 @@
       <div class="panel-heading clearfix">
         <p class="pull-left">
           Order details
+          <button type="button" class="btn btn-<%= timeline_node_color_for(@order.state) %> disabled"><%= @order.state.to_s.camelize %></button>
         </p>
             <div class="btn-group pull-right">
               <button type="button" class="<%= @order.state_events.present? ? '': 'disabled'%> btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
