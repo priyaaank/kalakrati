@@ -12,22 +12,24 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-              <th>Order #</th>
-              <th>Date</th>
-              <th>Customer name</th>
-              <th>Address</th>
-              <th>Phone / Email</th>
-              <th>Shipping notes</th>
-              <th>Payment notes</th>
-              <th>Items count</th>
-              <th>Total amount</th>
-              <th>Details</th>
+              <th class="col-lg-1">Order #</th>
+              <th class="col-lg-1">Status</th>
+              <th class="col-lg-1">Date</th>
+              <th class="col-lg-1">Customer name</th>
+              <th class="col-lg-2">Address</th>
+              <th class="col-lg-1">Phone / Email</th>
+              <th class="col-lg-1">Shipping notes</th>
+              <th class="col-lg-1">Payment notes</th>
+              <th class="col-lg-1">Items count</th>
+              <th class="col-lg-1">Total amount</th>
+              <th class="col-lg-1">Details</th>
             </tr>
             </thead>
             <tbody>
             <% @orders.each do |order| %>
                 <tr>
                   <td><a href="<%= checkout_order_url(order) %>" target="_order"><%= order.id.to_s %></a></td>
+                  <td><button type="button" class="btn btn-<%= timeline_node_color_for(order.state) %> disabled"><%= order.state.to_s.camelize %></button></td>
                   <td><%= order.order_date.strftime("%d-%b-%Y") %></td>
                   <td><%= order.customer_name %></td>
                   <td>
