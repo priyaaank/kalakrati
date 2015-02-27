@@ -5,46 +5,19 @@
   <!-- /.panel-heading -->
   <div class="panel-body">
     <ul class="timeline">
-      <li>
-        <div class="timeline-badge success"><i class="fa fa-check"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4 class="timeline-title">Delivered</h4>
-            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-            </p>
-          </div>
-          <div class="timeline-body">
-            <p>No additional info</p>
-          </div>
-        </div>
-      </li>
-      <li class="timeline-inverted">
-        <div class="timeline-badge info"><i class="fa fa-truck"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4 class="timeline-title">Shipped</h4>
-            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-          </div>
-          <div class="timeline-body">
-            <p>No additional info</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4 class="timeline-title">Order placed</h4>
-            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-          </div>
-          <div class="timeline-body">
-            <p>No additional info</p>
-          </div>
-        </div>
-      </li>
+      <% @order.order_audit_logs.reverse.each_with_index do |audit, index| %>
+          <li class="<%= index % 2 == 0 ? 'timeline-inverted' : ''%>">
+            <div class="timeline-badge <%= timeline_node_color_for(audit.event) %>"><i class="fa <%= timeline_node_icon_for(audit.event) %>"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><%= audit.event.to_s.camelize %></h4>
+                <p><small class="text-muted"><i class="fa fa-clock-o"></i><%= " Updated on #{audit.when.in_time_zone("Mumbai").strftime("%d-%b-%Y - %I:%M %p")}"%></small>
+                </p>
+              </div>
+            </div>
+          </li>
+      <% end %>
     </ul>
   </div>
   <!-- /.panel-body -->
