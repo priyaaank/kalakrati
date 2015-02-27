@@ -9,6 +9,8 @@ class Order
   embeds_one :address
   embeds_many :order_audit_logs
 
+  before_create :add_ordered_audit_log
+
   field :currency, type: String, default: Price::Symbol::INR
 
   state_machine :state, :initial => :ordered do
@@ -51,6 +53,10 @@ class Order
     new_order.order_date = Time.now
     new_order.save!
     new_order
+  end
+
+  def add_ordered_audit_log
+    self.order_audit_logs << OrderAuditLog.new(from: nil, to: :ordered, event: :ordered, when: Time.now)
   end
 
   def customer_name
