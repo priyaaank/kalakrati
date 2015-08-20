@@ -12,6 +12,8 @@ class Product
   embeds_one  :price
   belongs_to  :category
 
+  scope :newest_first, ->  { order(id: :desc) }
+
   accepts_nested_attributes_for :price
   accepts_nested_attributes_for :images
 

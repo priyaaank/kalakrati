@@ -53,7 +53,7 @@ class ProductsPresenter
   end
 
   def all_products_filtered
-    Product.all
+    Product.newest_first
   end
 
 end
