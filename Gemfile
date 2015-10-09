@@ -27,7 +27,7 @@ gem 'angular-rails-templates'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'mongoid'
+gem 'mongoid', '~> 5.0.0'
 gem 'mongoid-ancestry'
 gem 'mongoid_rails_migrations'
 gem 'moped'
