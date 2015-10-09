@@ -76,4 +76,3 @@ production:
         max_retries: 5
         retry_interval: 1
         timeout: 15
-        read: primary
